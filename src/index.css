@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  font-family: Poppins;
+  font-weight: 300;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* antd-mobile color theme */
+:root:root {
+  --adm-color-background: var(--adm-color-bg);
+  --adm-color-text: var(--adm-text-clr);
+  --adm-color-primary: #0891b2;
+}
+
+body {
+  font-family: Poppins;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ---------- scroll bar ---------- */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9aacb3; 
+  border-radius: 10px;
+}
+/* ---------- scroll bar ---------- */
+
+.ant-divider {
+  background-color: grey;
+}
+
+pre {
+  white-space: pre-wrap;       /* This makes the text wrap inside the <pre> tag */
+  word-wrap: break-word;       /* This breaks words that are too long to fit on one line */
+  width: 100%;                 /* Ensures the <pre> tag takes up the full width of its container */
+  box-sizing: border-box;      /* Includes padding and border in the element's total width and height */
+}
+
+.ant-select-dropdown {
+  box-shadow: var(--boxShadow);
+}
+
+.ant-menu.ant-menu-sub.ant-menu-vertical {
+  box-shadow: var(--boxShadow);
+}
