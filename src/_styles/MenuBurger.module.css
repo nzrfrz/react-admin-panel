@@ -1,0 +1,90 @@
+.hamburgerIcon {
+    position: absolute;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    top: 12px;
+    left: var(--left);
+    border-radius: 50%;
+    background: var(--clrBGTextHover);
+    transition: all 0.2s ease-in-out;
+    transform: scale(.80);
+}
+
+.hamburgerIcon:hover {
+    cursor: pointer;
+    border: 0px solid #0891b2;
+    box-shadow: 0 0 10px 1px #0891b2;
+}
+
+.hamburgerIcon:active {
+    transform: scale(0.4);
+}
+
+.icon1, .icon2, .icon3 {
+    position: relative;
+    width: 22px;
+    height: 3px;
+    border-radius: 16px;
+    background-color: var(--clrText);
+    transition: all 0.3s cubic-bezier(.84,.06,.52,1.8);
+}
+
+.icon1A, .icon2C, .icon3B {
+    position: relative;
+    width: 22px;
+    height: 3px;
+    border-radius: 16px;
+    background-color: var(--clrText);
+    transition: all 0.3s cubic-bezier(.84,.06,.52,1.8);
+}
+
+.icon1 {
+    transform: translateY(-5px);
+}
+  
+.icon3 {
+    transform: translateY(5px);
+}
+
+.icon1A {
+    position: absolute;
+    transform: translateY(0px) rotate(45deg);
+}
+
+.icon3B {
+    position: absolute;
+    transform: translateY(0px) rotate(-45deg);
+}
+
+.icon2C {
+    opacity: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+@media (width <= 768px) {
+    .hamburgerIcon {
+        position: absolute;
+        z-index: 99999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        width: 40px;
+        top: 12px;
+        left: var(--left);
+        cursor: pointer;
+        border-radius: 50%;
+        background: var(--clrBGElevated);
+        transition: all 0.27s ease-in-out;
+        transform: scale(.80);
+    }
+}

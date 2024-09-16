@@ -6,6 +6,7 @@ import { useSidebarMenuHook } from "../../_hooks";
 import { Layout, Menu } from "antd";
 import brandLogo from "../../assets/brand-logo-RGB.png";
 import styles from "../../_styles/AdminLayout.module.css";
+import { MenuBurger } from "./MenuBurger";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -27,6 +28,10 @@ export const AdminLayout = () => {
 
     return (
         <Layout style={{ height: "100vh" }}>
+            <MenuBurger 
+                collapsed={collapsed}
+                setCollapsed={setCollapsed}
+            />
             <Sider 
                 width={230}
                 collapsible
