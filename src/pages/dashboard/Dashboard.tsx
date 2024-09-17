@@ -1,8 +1,13 @@
+import { MainContainer } from "../../_components"
 
 export const Dashboard = () => {
     return (
-        <div>
-            DASHBOARD
-        </div>
+        <MainContainer>
+            <div>
+                <span>
+                Dashboard
+                </span>
+            </div>
+        </MainContainer>
     );
 };

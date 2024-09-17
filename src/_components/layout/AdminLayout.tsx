@@ -3,12 +3,13 @@ import { Outlet } from "react-router-dom";
 
 import { useSidebarMenuHook } from "../../_hooks";
 
-import { Layout, Menu } from "antd";
-import brandLogo from "../../assets/brand-logo-RGB.png";
-import styles from "../../_styles/AdminLayout.module.css";
 import { MenuBurger } from "./MenuBurger";
 import { ThemeToggler } from "../ThemeToggler";
 import { NavbarProfile } from "../NavbarProfile";
+
+import { Layout, Menu } from "antd";
+import brandLogo from "../../assets/brand-logo-RGB.png";
+import styles from "../../_styles/AdminLayout.module.css";
 
 const { Header, Sider, Content, Footer } = Layout;
 
