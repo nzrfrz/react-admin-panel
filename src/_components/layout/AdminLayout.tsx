@@ -7,6 +7,7 @@ import { Layout, Menu } from "antd";
 import brandLogo from "../../assets/brand-logo-RGB.png";
 import styles from "../../_styles/AdminLayout.module.css";
 import { MenuBurger } from "./MenuBurger";
+import { ThemeToggler } from "../ThemeToggler";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -68,6 +69,7 @@ export const AdminLayout = () => {
             </Sider>
             <Layout>
                 <Header style={layoutStyles.navbar as CSSProperties} >
+                    <ThemeToggler />
                     Nav Bar
                 </Header>
                 <Content className={styles.contentContainer}>
