@@ -1,0 +1,80 @@
+.customDDContainer {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    padding: 5px;
+    background-color: var(--clrBGContainer);
+    border-radius: var(--borderRadusLG);
+    box-shadow: var(--boxShadow);
+}
+
+.dropdownItemListWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 12px;
+}
+
+.dropdownItemListWrapper:hover {
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: var(--clrBGTextHover);
+}
+
+.dropdownItemListWrapper:active {
+    transform: scale(0.97);
+}
+
+.triggerButtonContainer {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.triggerButtonContainer > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.triggerButtonContainer:hover {
+    border-radius: 50%;
+    border: 0px solid #0891b2;
+    box-shadow: 0 0 10px 1px #0891b2;
+}
+
+.triggerButtonContainer > img:hover {
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+
+/* ---------- logout button ---------- */
+.dropdownLogoutWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--clrBGTextHover);
+    border-radius: var(--borderRadusLG);
+    padding: 5px 12px;
+    margin-bottom: 2px;
+}
+
+.dropdownLogoutWrapper > img {
+    width: 20px;
+    height: 20px;
+}
+
+.dropdownLogoutWrapper:hover {
+    cursor: pointer;
+    border-radius: var(--borderRadusLG);
+    background-color: var(--clrBGTextHover);
+}
+
+.dropdownLogoutWrapper:active {
+    transform: scale(0.97);
+}
+/* ---------- logout button ---------- */

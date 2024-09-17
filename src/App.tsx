@@ -8,8 +8,10 @@ function App() {
     token: {
       boxShadow,
       colorText,
+      borderRadiusLG,
       colorBgElevated,
       colorBgTextHover,
+      colorBgContainer,
     },
   } = theme.useToken();
 
@@ -19,7 +21,16 @@ function App() {
     root.style.setProperty('--boxShadow', boxShadow);
     root.style.setProperty('--clrBGElevated', colorBgElevated);
     root.style.setProperty('--clrBGTextHover', colorBgTextHover);
-  }, [colorText, colorBgTextHover, colorBgElevated, boxShadow]);
+    root.style.setProperty('--clrBGContainer', colorBgContainer);
+    root.style.setProperty('--borderRadusLG', `${borderRadiusLG}px`);
+  }, [
+    colorText, 
+    colorBgTextHover, 
+    colorBgElevated, 
+    boxShadow, 
+    borderRadiusLG, 
+    colorBgContainer,
+  ]);
 
   return (
     <MainRoutes />

@@ -8,6 +8,7 @@ import brandLogo from "../../assets/brand-logo-RGB.png";
 import styles from "../../_styles/AdminLayout.module.css";
 import { MenuBurger } from "./MenuBurger";
 import { ThemeToggler } from "../ThemeToggler";
+import { NavbarProfile } from "../NavbarProfile";
 
 const { Header, Sider, Content, Footer } = Layout;
 
@@ -70,7 +71,7 @@ export const AdminLayout = () => {
             <Layout>
                 <Header style={layoutStyles.navbar as CSSProperties} >
                     <ThemeToggler />
-                    Nav Bar
+                    <NavbarProfile />
                 </Header>
                 <Content className={styles.contentContainer}>
                     <Outlet />
