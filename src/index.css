@@ -11,8 +11,8 @@
 
 /* antd-mobile color theme */
 :root:root {
-  --adm-color-background: var(--adm-color-bg);
-  --adm-color-text: var(--adm-text-clr);
+  --adm-color-background: var(--antdm-color-bg);
+  --adm-color-text: var(--antdm-text-clr);
   --adm-color-primary: #0891b2;
 }
 
@@ -53,5 +53,9 @@ pre {
 }
 
 .ant-menu.ant-menu-sub.ant-menu-vertical {
+  box-shadow: var(--boxShadow);
+}
+
+.ant-picker-panel-container.ant-picker-date-panel-container {
   box-shadow: var(--boxShadow);
 }

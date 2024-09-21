@@ -1,5 +1,6 @@
 import { MainContainer } from "../../_components";
 import { BasicInputForm } from "./components/BasicInputForm";
+import { DateTimeInputForm } from "./components/DateTimeInputForm";
 import { EmailInputForm } from "./components/EmailInputForm";
 import { IDCardNumberInputForm } from "./components/IDCardNumberInputForm";
 import { PhoneNumberInputForm } from "./components/PhoneNumberInputForm";
@@ -17,6 +18,7 @@ export const BasicFormsPage = () => {
                 <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
                     <PhoneNumberInputForm />
                     <EmailInputForm />
+                    <DateTimeInputForm />
                 </div>
             </div>
         </MainContainer>
