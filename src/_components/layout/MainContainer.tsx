@@ -1,9 +1,11 @@
 import { CSSProperties, useMemo } from "react";
+import { CustomBreadcrumb } from "../customBreadcrumb/CustomBreadcrumb";
 
 interface ThisProps {
     scrollx?: boolean,
     scrolly?: boolean,
     centerItems?: boolean,
+    withBreadcrumb?: boolean,
     children: React.ReactNode,
 };
 
@@ -11,6 +13,7 @@ export const MainContainer: React.FC<ThisProps> = ({
     scrollx = false,
     scrolly = false,
     centerItems = false,
+    withBreadcrumb = false,
     children
 }) => {
 
@@ -18,15 +21,16 @@ export const MainContainer: React.FC<ThisProps> = ({
         return {
             width: "100%",
             height: "100%",
-            padding: "16px 24px",
+            padding: withBreadcrumb ? "0px 24px 16px 24px" : "16px 24px",
             overflowX: scrollx === false ? "hidden" : "scroll",
             overflowY: scrolly === false ? "hidden" : "scroll",
         }
-    }, [scrollx, scrolly]);
+    }, [scrollx, scrolly, withBreadcrumb]);
 
     const centerItemStyles: CSSProperties | undefined = useMemo(() => {
         if (centerItems === false) return undefined;
         return {
+            height: "100%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -34,8 +38,11 @@ export const MainContainer: React.FC<ThisProps> = ({
     }, [centerItems]);
 
     return (
-        <div style={{...basicStyles, ...centerItemStyles}}>
-            {children}
+        <div style={basicStyles}>
+            {withBreadcrumb && <CustomBreadcrumb />}
+            <div style={centerItemStyles}>
+                {children}
+            </div>
         </div>
     );
 };

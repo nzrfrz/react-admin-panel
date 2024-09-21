@@ -1,18 +1,17 @@
+import { useNavigate, useParams } from "react-router-dom";
+import { CustomButton, MainContainer } from "../../_components";
 import { Divider, Result } from "antd";
 
-import { CustomButton, MainContainer } from "../../_components";
-import { useNavigate, useParams } from "react-router-dom";
-
-export const DemoDetailPage = () => {
+export function DemoProductDetailPage () {
     const navigateTo = useNavigate();
     const { id } = useParams<{ id: string }>();
 
     function handleCLickEditProduct () {
         navigateTo(`/demo-page-2-b/demo-detail/edit/${id}`);
     };
-    
+
     return (
-        <MainContainer centerItems={true} >
+        <MainContainer centerItems={true} withBreadcrumb >
             <Result
                 title={`Product ${id} Detail Page`}
                 subTitle={
@@ -41,5 +40,5 @@ export const DemoDetailPage = () => {
                 }
             />
         </MainContainer>
-    );
+    )
 };

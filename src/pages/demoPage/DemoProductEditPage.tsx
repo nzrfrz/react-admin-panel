@@ -3,11 +3,11 @@ import { useParams } from "react-router-dom";
 import { Result } from "antd";
 import { MainContainer } from "../../_components";
 
-export const DemoEditPage = () => {
+export function DemoProductEditPage () {
     const { id } = useParams<{ id: string }>();
-    
+
     return (
-        <MainContainer centerItems={true} >
+        <MainContainer centerItems={true} withBreadcrumb>
             <Result
                 title={`Product ${id} Edit Page`}
                 subTitle={

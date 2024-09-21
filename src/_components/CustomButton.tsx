@@ -6,12 +6,12 @@ import {
 } from "antd";
 import { SizeType } from "antd/es/config-provider/SizeContext";
 
-type Shape = "default" | "circle" | "round" | undefined;
+export type buttonShape = "default" | "circle" | "round" | undefined;
 type HTMLType = "button" | "submit" | "reset" | undefined;
 type ColorType = "active" | "success" | "warning" | "error" | "info" | "default";
 
 interface ThisProps {
-    shape?: Shape, 
+    shape?: buttonShape, 
     block?: boolean, 
     size?: SizeType,
     loading?: boolean, 

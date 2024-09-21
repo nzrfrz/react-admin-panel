@@ -1,6 +1,6 @@
 import { 
-    DemoDetailPage,
-    DemoEditPage,
+    DemoProductDetailPage, 
+    DemoProductEditPage
 } from "../pages";
 
 export const otherRoutesRegistry = [
@@ -9,7 +9,7 @@ export const otherRoutesRegistry = [
         label: null,
         path: "/demo-page-2-b/demo-detail/:id", // must include the parent route to extract the path into breadcrumb
         isIndex: false,
-        element: <DemoDetailPage />,
+        element: <DemoProductDetailPage />,
         icon: null,
     },
     {
@@ -17,7 +17,7 @@ export const otherRoutesRegistry = [
         label: null,
         path: "/demo-page-2-b/demo-detail/edit/:id",  // must include the parent route to extract the path into breadcrumb
         isIndex: false,
-        element: <DemoEditPage />,
+        element: <DemoProductEditPage />,
         icon: null,
     },
 ];
