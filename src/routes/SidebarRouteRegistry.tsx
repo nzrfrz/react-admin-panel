@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { 
     Dashboard,
     BasicFormsPage,
-    DummyPage1,
-    DummyPage2A,
-    DummyPage2B,
     DynamicFormPage,
     OtherEntriesPage,
+    DemoPage1,
+    DemoPage2A,
+    DemoPage2B,
 } from "../pages";
 
 import { RxDot } from "react-icons/rx";
@@ -68,33 +68,33 @@ export const sidebarRouteRegistry = [
         icon: <GiTargetDummy />,
         children: [
             {
-                key: "dummyPage1",
-                label: <Link to="/dummy-page-1" >Dummy Page 1</Link>,
-                path: "/dummy-page-1",
-                element: <DummyPage1 />,
+                key: "demoPage1",
+                label: <Link to="/demo-page-1" >Demo Page 1</Link>,
+                path: "/demo-page-1",
+                element: <DemoPage1 />,
                 icon: <RxDot/>,
                 children: undefined
             },
             {
-                key: "dummyPage2",
-                label: "Dummy Page 2",
-                path: "/dummy-page-2",
+                key: "demoPage2",
+                label: "Demo Page 2",
+                path: "/demo-page-2",
                 element: null,
                 icon: <RxDot/>,
                 children: [
                     {
-                        key: "dummyPage2A",
-                        label: <Link to="/dummy-page-2-a" >Dummy Page 2A</Link>,
-                        path: "/dummy-page-2-a",
-                        element: <DummyPage2A />,
+                        key: "demoPage2A",
+                        label: <Link to="/demo-page-2-a" >Demo Page 2A</Link>,
+                        path: "/demo-page-2-a",
+                        element: <DemoPage2A />,
                         icon: <RxDot/>,
                         children: undefined
                     },
                     {
-                        key: "dummyPage2B",
-                        label: <Link to="/dummy-page-2-b" >Dummy Page 2B</Link>,
-                        path: "/dummy-page-2-b",
-                        element: <DummyPage2B />,
+                        key: "demoPage2B",
+                        label: <Link to="/demo-page-2-b" >Demo Page 2B</Link>,
+                        path: "/demo-page-2-b",
+                        element: <DemoPage2B />,
                         icon: <RxDot/>,
                         children: undefined
                     },

@@ -5,3 +5,5 @@ export * from "./normalizeStringPath";
 
 export * from "./formValidation";
 export * from "./stripCountryCode";
+
+export * from "./generateUniqueID";
