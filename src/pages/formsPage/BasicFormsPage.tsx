@@ -1,5 +1,6 @@
 import { MainContainer } from "../../_components";
 import { BasicInputForm } from "./components/BasicInputForm";
+import { BasicNumberInputForm } from "./components/BasicNumberInputForm";
 import { CurrencyInputForm } from "./components/CurrencyInputForm";
 import { DateTimeInputForm } from "./components/DateTimeInputForm";
 import { EmailInputForm } from "./components/EmailInputForm";
@@ -24,6 +25,7 @@ export const BasicFormsPage = () => {
                         <PhoneNumberInputForm />
                         <EmailInputForm />
                         <DateTimeInputForm />
+                        <BasicNumberInputForm />
                         <CurrencyInputForm />
                     </div>
                 </div>
