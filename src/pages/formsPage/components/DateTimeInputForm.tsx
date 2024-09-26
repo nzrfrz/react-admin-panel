@@ -1,11 +1,13 @@
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 
-import { CustomButton } from "../../../_components";
+import { 
+    CustomButton, 
+    DatePickerForm,
+} from "../../../_components";
 import { RenderFormValue } from "./RenderFormValue";
 
 import { Card, Checkbox, Form, Switch } from "antd";
-import { DatePickerForm } from "../../../_components/formItems/DatePickerForm";
 
 export const DateTimeInputForm = () => {
     const [form] = Form.useForm();
