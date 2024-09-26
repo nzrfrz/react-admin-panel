@@ -5,6 +5,7 @@ import { DateTimeInputForm } from "./components/DateTimeInputForm";
 import { EmailInputForm } from "./components/EmailInputForm";
 import { IDCardNumberInputForm } from "./components/IDCardNumberInputForm";
 import { PhoneNumberInputForm } from "./components/PhoneNumberInputForm";
+import { SelectSearchForm } from "./components/SelectSearchForm";
 import { URLInputForm } from "./components/URLInputForm";
 
 export const BasicFormsPage = () => {
@@ -14,15 +15,16 @@ export const BasicFormsPage = () => {
                 <h1>Basic Form Items</h1>
                 <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
                     <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
-                        {/* <BasicInputForm />
+                        <BasicInputForm />
                         <URLInputForm />
-                        <IDCardNumberInputForm /> */}
-                        <CurrencyInputForm />
+                        <IDCardNumberInputForm />
+                        <SelectSearchForm />
                     </div>
                     <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
-                        {/* <PhoneNumberInputForm />
+                        <PhoneNumberInputForm />
                         <EmailInputForm />
-                        <DateTimeInputForm /> */}
+                        <DateTimeInputForm />
+                        <CurrencyInputForm />
                     </div>
                 </div>
             </div>
