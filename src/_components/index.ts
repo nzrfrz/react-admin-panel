@@ -11,3 +11,4 @@ export * from "./formItems/DatePickerForm";
 export * from "./formItems/InputNumberForm";
 export * from "./formItems/SelectForm";
 export * from "./formItems/PasswordForm";
+export * from "./formItems/TextAreaForm";

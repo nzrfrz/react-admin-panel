@@ -19,7 +19,7 @@ export function PasswordInputForm() {
     };
 
     return (
-        <Card title="Date Time Input Form">
+        <Card title="Password Input Form">
             <div style={{ display: "flex", flexDirection: "column", gap: 8 }} >
                 <div style={{ display: "flex", justifyContent: "flex-end" }}>
                     <Checkbox checked={useStrict} onClick={toggleCheckBox}>Use Strict Password</Checkbox>

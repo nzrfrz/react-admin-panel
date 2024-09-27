@@ -8,6 +8,7 @@ import { IDCardNumberInputForm } from "./components/IDCardNumberInputForm";
 import { PasswordInputForm } from "./components/PasswordInputForm";
 import { PhoneNumberInputForm } from "./components/PhoneNumberInputForm";
 import { SelectSearchForm } from "./components/SelectSearchForm";
+import { TextAreaInputForm } from "./components/TextAreaInputForm";
 import { URLInputForm } from "./components/URLInputForm";
 
 export const BasicFormsPage = () => {
@@ -29,6 +30,7 @@ export const BasicFormsPage = () => {
                         <DateTimeInputForm />
                         <BasicNumberInputForm />
                         <CurrencyInputForm />
+                        <TextAreaInputForm />
                     </div>
                 </div>
             </div>
