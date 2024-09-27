@@ -1,13 +1,19 @@
-
 import { MainContainer } from "../../_components";
-import comingSoonIllustartion from "../../assets/coming_soon_v3.png";
+import { CheckBoxEntry } from "./components/otherEntries/CheckBoxEntry";
+import { ServerSearch } from "./components/otherEntries/ServerSearch";
 
 export const OtherEntriesPage = () => {
     return (
-        <MainContainer centerItems>
-            <div style={{ display: "flex", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: 500 }}>
-                    <img style={{ width: "100%", height: "100%", objectFit: "contain" }} src={comingSoonIllustartion} />
+        <MainContainer scrolly>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }} >
+                <h1>Other Entries</h1>
+                <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
+                    <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
+                        <ServerSearch />
+                    </div>
+                    <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
+                        <CheckBoxEntry />
+                    </div>
                 </div>
             </div>
         </MainContainer>

@@ -12,3 +12,6 @@ export * from "./formItems/InputNumberForm";
 export * from "./formItems/SelectForm";
 export * from "./formItems/PasswordForm";
 export * from "./formItems/TextAreaForm";
+
+export * from "./otherInputs/SearchInput";
+export * from "./otherInputs/CheckBoxInput";

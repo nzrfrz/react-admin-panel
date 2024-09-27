@@ -1,7 +1,7 @@
 
-export const RenderFormValue = ({value}: {value: string}) => {
+export const RenderFormValue = ({value}: {value: string | string[] | undefined}) => {
 
-    if (value === "") return null;
+    if (value === "" || value?.length === 0 || value === undefined) return null;
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <span>Form Value: </span>
