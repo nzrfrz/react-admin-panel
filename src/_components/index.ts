@@ -10,3 +10,4 @@ export * from "./formItems/InputForm";
 export * from "./formItems/DatePickerForm";
 export * from "./formItems/InputNumberForm";
 export * from "./formItems/SelectForm";
+export * from "./formItems/PasswordForm";
