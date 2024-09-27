@@ -21,6 +21,7 @@ import brandTextLogoLightkMode from "../assets/brandTextLogo_LightMode.png";
 import styles from "../_styles/AdminLayout.module.css";
 
 type MenuItem = Required<MenuProps>['items'][number];
+
 interface LevelKeysProps {
     key?: string;
     children?: LevelKeysProps[];
@@ -100,30 +101,25 @@ export const useSidebarMenuHook = () => {
             }
         })
     }, [sidebarRouteRegistry]);
+    
+    const levelKeys = getLevelKeys(sidebarItems as LevelKeysProps[]);
 
     const onOpenChangeMenu: MenuProps["onOpenChange"] = (opennedKeys: string[]) => {
-        /**
-         * To close the parent menu when the other parent menu "with children" is clicked.
-         * Combine with setOpenKeys() hook, so when the same parent is clicked,
-         * it will close the parent menu.
-        */
-        const levelKeys = getLevelKeys(sidebarItems as LevelKeysProps[]);
-        const currentOpenKey = opennedKeys.filter((key) => openKeys.indexOf(key) === -1);
-
+        const currentOpenKey = opennedKeys.find((key) => openKeys.indexOf(key) === -1);
+        
+        // open
         if (currentOpenKey !== undefined) {
-            const repeatIndex = opennedKeys
-            .filter((key) => key !== currentOpenKey.toString())
-            .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey.toString()]);
+            const repeatIndex = openKeys
+            .filter((key) => key !== currentOpenKey)
+            .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey]);
 
-            const fixedOpennedKey = opennedKeys
-            // remove repeat key
-            .filter((_, index) => index !== repeatIndex)
-            // remove current level all child
-            .filter((key) => levelKeys[key] <= levelKeys[currentOpenKey.toString()])
-
-            setOpenKeys(fixedOpennedKey);
+            setOpenKeys(
+                opennedKeys
+                .filter((_, index) => index !== repeatIndex)
+                .filter((key) => levelKeys[key] <= levelKeys[currentOpenKey])
+            );
         }
-        else setOpenKeys(currentOpenKey);
+        else setOpenKeys(opennedKeys);
     };
 
     const handleClickedMenu = useCallback(() => {
