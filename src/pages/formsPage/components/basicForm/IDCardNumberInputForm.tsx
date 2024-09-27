@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-import { CustomButton, InputForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
-
 import { Card, Form } from "antd";
+import { CustomButton, InputForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
-export function EmailInputForm () {
+export function IDCardNumberInputForm () {
     const [form] = Form.useForm();
     const [value, setValue] = useState("");
 
@@ -19,7 +18,7 @@ export function EmailInputForm () {
     };
     
     return (
-        <Card title="Email Input Form">
+        <Card title="ID Card Input Form">
             <Form
                 form={form}
                 layout="vertical"
@@ -29,9 +28,9 @@ export function EmailInputForm () {
                 onFinish={onSubmitForm}
             >
                 <InputForm
-                    name="email"
-                    label="Email"
-                    inputMode="email"
+                    name="idCardNumber"
+                    label="ID Card Number"
+                    inputMode="idCard"
                     requiredMark={true}
                 />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
@@ -53,4 +52,4 @@ export function EmailInputForm () {
             </Form>
         </Card>
     );
-}
+};

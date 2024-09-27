@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-import { Card, Form } from "antd";
-import { CustomButton, InputForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
+import { CustomButton, InputForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
-export function IDCardNumberInputForm () {
+import { Card, Form } from "antd";
+
+export function URLInputForm () {
     const [form] = Form.useForm();
     const [value, setValue] = useState("");
 
@@ -18,7 +19,7 @@ export function IDCardNumberInputForm () {
     };
     
     return (
-        <Card title="ID Card Input Form">
+        <Card title="URL Input Form">
             <Form
                 form={form}
                 layout="vertical"
@@ -28,9 +29,9 @@ export function IDCardNumberInputForm () {
                 onFinish={onSubmitForm}
             >
                 <InputForm
-                    name="idCardNumber"
-                    label="ID Card Number"
-                    inputMode="idCard"
+                    name="linkURL"
+                    label="URL"
+                    inputMode="url"
                     requiredMark={true}
                 />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>

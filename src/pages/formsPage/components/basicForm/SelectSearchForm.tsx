@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { Card, Checkbox, Form, Switch } from "antd";
-import { CustomButton, SelectForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
+import { CustomButton, SelectForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
 const selectOptionsData = [
     {

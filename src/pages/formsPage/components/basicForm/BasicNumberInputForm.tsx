@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Card, Form } from "antd";
-import { CustomButton, InputForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
 
-export function BasicInputForm() {
+import { Card, Form } from "antd";
+import { CustomButton, InputNumberForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
+
+export function BasicNumberInputForm() {
     const [form] = Form.useForm();
     const [value, setValue] = useState("");
 
@@ -11,13 +12,13 @@ export function BasicInputForm() {
         setValue(values);
     };
 
-    function resetForm () {
+    function resetForm() {
         setValue("");
         form.resetFields();
     };
 
     return (
-        <Card title="Basic Input Form">
+        <Card title="Basic Number Input Form">
             <Form
                 form={form}
                 layout="vertical"
@@ -26,10 +27,13 @@ export function BasicInputForm() {
                 style={{ width: "100%" }}
                 onFinish={onSubmitForm}
             >
-                <InputForm
-                    name="username"
-                    label="Username"
+                <InputNumberForm
+                    name="qty"
+                    label="Quantity"
+                    min={0}
+                    max={15}
                     requiredMark={true}
+                    addonBefore={"Qty"}
                 />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
                     <CustomButton

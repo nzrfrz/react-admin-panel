@@ -4,8 +4,8 @@ import { useEffect, useState } from "react";
 import { 
     CustomButton, 
     DatePickerForm,
-} from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
+} from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
 import { Card, Checkbox, Form, Switch } from "antd";
 

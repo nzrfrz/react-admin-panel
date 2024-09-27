@@ -1,21 +1,15 @@
 import { useState } from "react";
 
-import { CustomButton, InputForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
-
 import { Card, Form } from "antd";
+import { CustomButton, InputNumberForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
-const COUNTRY_CODE = "62";
-
-export function PhoneNumberInputForm () {
+export function CurrencyInputForm() {
     const [form] = Form.useForm();
     const [value, setValue] = useState("");
 
     const onSubmitForm = (values: any) => {
-        const value: any = {
-            phoneNumber: COUNTRY_CODE + values.phoneNumber
-        }
-        setValue({...value});
+        setValue(values);
     };
 
     function resetForm () {
@@ -24,7 +18,7 @@ export function PhoneNumberInputForm () {
     };
 
     return (
-        <Card title="Phone Number Input Form">
+        <Card title="Currency Input Form">
             <Form
                 form={form}
                 layout="vertical"
@@ -33,12 +27,12 @@ export function PhoneNumberInputForm () {
                 style={{ width: "100%" }}
                 onFinish={onSubmitForm}
             >
-                <InputForm
-                    name="phoneNumber"
-                    label="Phone Number"
-                    inputMode="phoneNumber"
-                    countryCode={COUNTRY_CODE}
+                <InputNumberForm
+                    name="price"
+                    label="Price"
+                    inputMode="currency"
                     requiredMark={true}
+                    addonBefore={"$"}
                 />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
                     <CustomButton
@@ -58,5 +52,5 @@ export function PhoneNumberInputForm () {
                 <RenderFormValue value={value} />
             </Form>
         </Card>
-    )
-}
+    );
+};

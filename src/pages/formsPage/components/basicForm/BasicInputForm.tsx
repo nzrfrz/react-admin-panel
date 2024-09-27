@@ -1,11 +1,9 @@
 import { useState } from "react";
-
-import { CustomButton, InputForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
-
 import { Card, Form } from "antd";
+import { CustomButton, InputForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
-export function URLInputForm () {
+export function BasicInputForm() {
     const [form] = Form.useForm();
     const [value, setValue] = useState("");
 
@@ -17,9 +15,9 @@ export function URLInputForm () {
         setValue("");
         form.resetFields();
     };
-    
+
     return (
-        <Card title="URL Input Form">
+        <Card title="Basic Input Form">
             <Form
                 form={form}
                 layout="vertical"
@@ -29,9 +27,8 @@ export function URLInputForm () {
                 onFinish={onSubmitForm}
             >
                 <InputForm
-                    name="linkURL"
-                    label="URL"
-                    inputMode="url"
+                    name="username"
+                    label="Username"
                     requiredMark={true}
                 />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>

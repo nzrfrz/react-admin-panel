@@ -1,15 +1,15 @@
 import { MainContainer } from "../../_components";
-import { BasicInputForm } from "./components/BasicInputForm";
-import { BasicNumberInputForm } from "./components/BasicNumberInputForm";
-import { CurrencyInputForm } from "./components/CurrencyInputForm";
-import { DateTimeInputForm } from "./components/DateTimeInputForm";
-import { EmailInputForm } from "./components/EmailInputForm";
-import { IDCardNumberInputForm } from "./components/IDCardNumberInputForm";
-import { PasswordInputForm } from "./components/PasswordInputForm";
-import { PhoneNumberInputForm } from "./components/PhoneNumberInputForm";
-import { SelectSearchForm } from "./components/SelectSearchForm";
-import { TextAreaInputForm } from "./components/TextAreaInputForm";
-import { URLInputForm } from "./components/URLInputForm";
+import { BasicInputForm } from "./components/basicForm/BasicInputForm";
+import { BasicNumberInputForm } from "./components/basicForm/BasicNumberInputForm";
+import { CurrencyInputForm } from "./components/basicForm/CurrencyInputForm";
+import { DateTimeInputForm } from "./components/basicForm/DateTimeInputForm";
+import { EmailInputForm } from "./components/basicForm/EmailInputForm";
+import { IDCardNumberInputForm } from "./components/basicForm/IDCardNumberInputForm";
+import { PasswordInputForm } from "./components/basicForm/PasswordInputForm";
+import { PhoneNumberInputForm } from "./components/basicForm/PhoneNumberInputForm";
+import { SelectSearchForm } from "./components/basicForm/SelectSearchForm";
+import { TextAreaInputForm } from "./components/basicForm/TextAreaInputForm";
+import { URLInputForm } from "./components/basicForm/URLInputForm";
 
 export const BasicFormsPage = () => {
     return (

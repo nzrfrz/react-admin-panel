@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-import { Card, Form } from "antd";
-import { CustomButton, InputNumberForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
+import { CustomButton, InputForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
-export function CurrencyInputForm() {
+import { Card, Form } from "antd";
+
+export function EmailInputForm () {
     const [form] = Form.useForm();
     const [value, setValue] = useState("");
 
@@ -16,9 +17,9 @@ export function CurrencyInputForm() {
         setValue("");
         form.resetFields();
     };
-
+    
     return (
-        <Card title="Currency Input Form">
+        <Card title="Email Input Form">
             <Form
                 form={form}
                 layout="vertical"
@@ -27,12 +28,11 @@ export function CurrencyInputForm() {
                 style={{ width: "100%" }}
                 onFinish={onSubmitForm}
             >
-                <InputNumberForm
-                    name="price"
-                    label="Price"
-                    inputMode="currency"
+                <InputForm
+                    name="email"
+                    label="Email"
+                    inputMode="email"
                     requiredMark={true}
-                    addonBefore={"$"}
                 />
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
                     <CustomButton
@@ -53,4 +53,4 @@ export function CurrencyInputForm() {
             </Form>
         </Card>
     );
-};
+}

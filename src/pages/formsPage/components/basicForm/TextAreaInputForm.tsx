@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import { Card, Form } from "antd";
-import { CustomButton, TextAreaForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
+import { CustomButton, TextAreaForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
 export function TextAreaInputForm() {
     const [form] = Form.useForm();

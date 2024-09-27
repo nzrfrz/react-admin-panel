@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, Checkbox, Form } from "antd";
-import { CustomButton, PasswordForm } from "../../../_components";
-import { RenderFormValue } from "./RenderFormValue";
+import { CustomButton, PasswordForm } from "../../../../_components";
+import { RenderFormValue } from "../RenderFormValue";
 
 export function PasswordInputForm() {
     const [form] = Form.useForm();
