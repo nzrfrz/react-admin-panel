@@ -1,6 +1,7 @@
 import { MainContainer } from "../../_components";
 import { CheckBoxEntry } from "./components/otherEntries/CheckBoxEntry";
 import { EntryOTP } from "./components/otherEntries/EntryOTP";
+import { GlobalNotification } from "./components/otherEntries/GlobalNotification";
 import { ServerSearch } from "./components/otherEntries/ServerSearch";
 
 export const OtherEntriesPage = () => {
@@ -15,6 +16,7 @@ export const OtherEntriesPage = () => {
                     </div>
                     <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
                         <CheckBoxEntry />
+                        <GlobalNotification />
                     </div>
                 </div>
             </div>
