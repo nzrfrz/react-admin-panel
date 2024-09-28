@@ -15,3 +15,4 @@ export * from "./formItems/TextAreaForm";
 
 export * from "./otherInputs/SearchInput";
 export * from "./otherInputs/CheckBoxInput";
+export * from "./otherInputs/inputOTP/InputOTP";

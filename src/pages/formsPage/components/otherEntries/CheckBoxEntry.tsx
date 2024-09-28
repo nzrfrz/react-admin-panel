@@ -59,6 +59,7 @@ const data: CheckboxDataProps[] = [
 
 export function CheckBoxEntry() {
     const [checkboxMode, setCheckboxMode] = useState<checkboxInputType>("single");
+    const [checkboxData, setCheckboxData] = useState<CheckboxDataProps[]>(data);
     const [checkedItems, setCheckedItems] = useState<string | string[] | undefined>(undefined);
 
     const toggleSwitch = (e: boolean) => {
@@ -83,9 +84,13 @@ export function CheckBoxEntry() {
                         checkboxMode={checkboxMode}
                         checkedItems={checkedItems}
                         setCheckedItems={setCheckedItems}
+                        checkboxData={checkboxData}
+                        setCheckboxData={setCheckboxData}
                     />
                 </div>
-                <RenderFormValue value={checkedItems} />
+                <div style={{ marginTop: 16 }}>
+                    <RenderFormValue value={checkedItems} />
+                </div>
             </div>
         </Card>
     );

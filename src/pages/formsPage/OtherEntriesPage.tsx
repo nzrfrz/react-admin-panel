@@ -1,5 +1,6 @@
 import { MainContainer } from "../../_components";
 import { CheckBoxEntry } from "./components/otherEntries/CheckBoxEntry";
+import { EntryOTP } from "./components/otherEntries/EntryOTP";
 import { ServerSearch } from "./components/otherEntries/ServerSearch";
 
 export const OtherEntriesPage = () => {
@@ -10,6 +11,7 @@ export const OtherEntriesPage = () => {
                 <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", gap: 16 }}>
                     <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
                         <ServerSearch />
+                        <EntryOTP />
                     </div>
                     <div style={{ display: "flex", flex: "1 1 320px", flexDirection: "column", gap: 16 }}>
                         <CheckBoxEntry />
