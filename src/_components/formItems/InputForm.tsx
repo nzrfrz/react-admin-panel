@@ -25,6 +25,7 @@ interface ThisProps {
     label?: string;
     inputMode?: mode;
     size?: fieldSize;
+    noStyle?: boolean;
     placeholder?: string;
     hasFeedback?: boolean;
     requiredMark?: boolean;
@@ -49,6 +50,7 @@ export const InputForm: React.FC<ThisProps> = ({
     requiredMark,
     validateStatus,
     size = "middle",
+    noStyle = false,
     inputMode = "general",
     isRulesRequired = true,
     countryCode = inputMode !== "phoneNumber" ? undefined : "62",
@@ -101,6 +103,7 @@ export const InputForm: React.FC<ThisProps> = ({
             name={name}
             help={help}
             label={label}
+            noStyle={noStyle}
             required={requiredMark}
             hasFeedback={hasFeedback}
             validateStatus={validateStatus}
