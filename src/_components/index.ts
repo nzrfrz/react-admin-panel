@@ -17,3 +17,5 @@ export * from "./formItems/InputSpaceCompact";
 export * from "./otherInputs/SearchInput";
 export * from "./otherInputs/CheckBoxInput";
 export * from "./otherInputs/inputOTP/InputOTP";
+
+export * from "./uploadField/UploadField";

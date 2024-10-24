@@ -30,3 +30,137 @@ isIndex | boolean
 element | React.FC or JSX.Element or null (set this to `null` if `children` is not empty)
 icon | React.FC or JSX.Element (antd icons, react icons)
 children | `[this object props]` (set to `undefined` if does not need a children)
+
+## Components
+Reusable component based from antd ui component with custom props to make it easy to use on every page inside the project.
+
+#### Form Item - InputForm
+- Custom Component Props
+props | value
+---- | ----
+inputMode | string > `general`, `email`, `phoneNumber`, `idCard`, `url`
+countryCode | string > `inputMode` must be `phoneNumber`
+- Usage
+```javascript
+<Form form={form} layout="vertical" scrollToFirstError wrapperCol={{ span: 24 }} style={{ width: "100%" }}
+    onFinish={onSubmitForm}>
+    <InputForm name="username" label="Username" requiredMark={true} />
+</Form>
+```
+#
+#### Form Item - SelectForm
+- Custom Component Props
+props | value
+---- | ----
+selectMode | string > `single`, `multiple`,
+selectOptions | array > [ {label: string, value: string, slug: string} ]
+- Usage
+```javascript
+<Form form={form} layout="vertical" scrollToFirstError wrapperCol={{ span: 24 }} style={{ width: "100%" }}
+      onFinish={onSubmitForm}>
+  <SelectForm
+    name={"fruits"}
+    label="Fruit(s)"
+    allowClear={true}
+    showSearch={true}
+    requiredMark={true}
+    hideSelected={true}
+    selectOptions={selectOptionsData}
+    selectMode={"multiple}
+  />
+</Form>
+```
+#
+#### Form Item - PasswordForm
+- Custom Component Props
+props | value
+---- | ----
+withConfirmPassword | boolean
+useStrictPassword | booelan
+- Usage
+```javascript
+<Form form={form} layout="vertical" scrollToFirstError wrapperCol={{ span: 24 }} style={{ width: "100%" }}
+      onFinish={onSubmitForm}>
+    <PasswordForm
+        requiredMark={true}
+        withConfirmPassword={true}
+        useStrictPassword={true}
+    />
+</Form>
+```
+#
+#### Form Item - InputNumberForm
+- Custom Component Props
+props | value
+---- | ----
+inputMode | string > `general`, `currency`
+- Usage
+```javascript
+<Form form={form} layout="vertical" scrollToFirstError wrapperCol={{ span: 24 }} style={{ width: "100%" }}
+      onFinish={onSubmitForm}>
+    <InputNumberForm
+        name="qty"
+        label="Quantity"
+        min={0}
+        max={15}
+        requiredMark={true}
+        addonBefore={"Qty"}
+    />
+</Form>
+```
+#
+#### Form Item - DatePickerForm
+- Custom Component Props
+props | value
+---- | ----
+pickerMode | string > `single`, `range`
+- Usage
+```javascript
+<Form form={form} layout="vertical" scrollToFirstError wrapperCol={{ span: 24 }} style={{ width: "100%" }}
+      onFinish={onSubmitForm}>
+      <DatePickerForm
+          name="pickedDate"
+          label="Pick Any Date"
+          required={true}
+          showTime={showTime}
+          pickerMode="range"
+      />
+</Form>
+```
+#
+##### Form Item - TextAreaForm
+- Usage
+```javascript
+<Form form={form} layout="vertical" scrollToFirstError wrapperCol={{ span: 24 }} style={{ width: "100%" }}
+      onFinish={onSubmitForm}>
+    <TextAreaForm
+        name="description"
+        label="Description"
+    />
+</Form>
+```
+#
+#### UploadField
+- Component Props
+props | value
+---- | ----
+docType | `.csv`, `.txt`, `.json`, `.pdf`, `.xlsx`, `.docx`, `.pptx`, undefined.  Mandatory if `toUploadFileType` is set to `non-image`
+previewImage | `boolean` show the image preview or not, `false` if `toUploadFileType` set to `non-image`
+toUploadFileType | `image`, `non-image`
+uploadResults | left side hook state
+setUploadResults | right side hook state
+uploadApiEndpoint | `string` url to upload the file
+deleteApiEndpoint | `string` url to delete the file
+
+- Usage
+```javascript
+<UploadField
+  docType={docType as nonImageAllowedFileType}
+  previewImage={imageWithPreview}
+  toUploadFileType={uploadFileType}
+  uploadResults={uploadResults}
+  setUploadResults={setUploadResults}
+  uploadApiEndpoint={uploadEndpoint}
+  deleteApiEndpoint={deleteEndpoint}
+/>
+```
