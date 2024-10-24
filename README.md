@@ -35,8 +35,30 @@ children | `[this object props]` (set to `undefined` if does not need a children
 Reusable component based from antd ui component with custom props to make it easy to use on every page inside the project.
 > Below component props only custom props, the other props are inherit from antd component.
 
+#### MainContainer
+props | value
+---- | ----
+scrollx | boolean
+scrolly | boolean
+centerItems | boolean
+withBreadcrumb | boolean
+children | React.ReactNode
+- Usage
+```javascript
+<MainContainer>
+  <div></div>
+</MainContainer>
+```
+#
+##### BreadCrumb
+Breadcrumb in this poroject used on the page that directly below the route parent page.  Here is hwo to use the breadcrumb.
+- Create a parent route in `SidebarRouteRegistry.tsx` at `path` prop with the value like `/product-list`.
+- Create child route in `OtherRouteRegistry.tsx` with the `path` props must have the parent route like `/product-list/product-detail`.
+- If expecting another child route, just do like point `2` with parent and first child route must include in the route path like `/product-list/product-detail/edit`.
+- Also if expecting a dynamic route with `id` of an item, give it to the last route path string like `/product-list/product-detail/edit/:id`.
+- Then it will produce a breadcrumb like `Product List / Product Detail / Edit`.
+#
 #### Form Item - InputForm
-
 props | value
 ---- | ----
 inputMode | string > `general`, `email`, `phoneNumber`, `idCard`, `url`
@@ -50,7 +72,6 @@ countryCode | string > `inputMode` must be `phoneNumber`
 ```
 #
 #### Form Item - SelectForm
-
 props | value
 ---- | ----
 selectMode | string > `single`, `multiple`,
@@ -73,7 +94,6 @@ selectOptions | array > [ {label: string, value: string, slug: string} ]
 ```
 #
 #### Form Item - PasswordForm
-
 props | value
 ---- | ----
 withConfirmPassword | boolean
@@ -91,7 +111,6 @@ useStrictPassword | booelan
 ```
 #
 #### Form Item - InputNumberForm
-
 props | value
 ---- | ----
 inputMode | string > `general`, `currency`
@@ -111,7 +130,6 @@ inputMode | string > `general`, `currency`
 ```
 #
 #### Form Item - DatePickerForm
-
 props | value
 ---- | ----
 pickerMode | string > `single`, `range`
@@ -151,7 +169,6 @@ uploadResults | left side hook state
 setUploadResults | right side hook state
 uploadApiEndpoint | `string` url to upload the file
 deleteApiEndpoint | `string` url to delete the file
-
 - Usage
 ```javascript
 <UploadField
