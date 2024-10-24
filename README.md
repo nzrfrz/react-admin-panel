@@ -33,9 +33,10 @@ children | `[this object props]` (set to `undefined` if does not need a children
 
 ## Components
 Reusable component based from antd ui component with custom props to make it easy to use on every page inside the project.
+> Below component props only custom props, the other props are inherit from antd component.
 
 #### Form Item - InputForm
-- Custom Component Props
+
 props | value
 ---- | ----
 inputMode | string > `general`, `email`, `phoneNumber`, `idCard`, `url`
@@ -49,7 +50,7 @@ countryCode | string > `inputMode` must be `phoneNumber`
 ```
 #
 #### Form Item - SelectForm
-- Custom Component Props
+
 props | value
 ---- | ----
 selectMode | string > `single`, `multiple`,
@@ -66,13 +67,13 @@ selectOptions | array > [ {label: string, value: string, slug: string} ]
     requiredMark={true}
     hideSelected={true}
     selectOptions={selectOptionsData}
-    selectMode={"multiple}
+    selectMode="multiple"
   />
 </Form>
 ```
 #
 #### Form Item - PasswordForm
-- Custom Component Props
+
 props | value
 ---- | ----
 withConfirmPassword | boolean
@@ -90,7 +91,7 @@ useStrictPassword | booelan
 ```
 #
 #### Form Item - InputNumberForm
-- Custom Component Props
+
 props | value
 ---- | ----
 inputMode | string > `general`, `currency`
@@ -110,7 +111,7 @@ inputMode | string > `general`, `currency`
 ```
 #
 #### Form Item - DatePickerForm
-- Custom Component Props
+
 props | value
 ---- | ----
 pickerMode | string > `single`, `range`
@@ -141,7 +142,6 @@ pickerMode | string > `single`, `range`
 ```
 #
 #### UploadField
-- Component Props
 props | value
 ---- | ----
 docType | `.csv`, `.txt`, `.json`, `.pdf`, `.xlsx`, `.docx`, `.pptx`, undefined.  Mandatory if `toUploadFileType` is set to `non-image`
