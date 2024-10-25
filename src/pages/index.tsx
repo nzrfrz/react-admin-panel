@@ -9,3 +9,5 @@ export * from "./demoPage/DemoProductEditPage";
 export * from "./formsPage/BasicFormsPage";
 export * from "./formsPage/DynamicFormPage";
 export * from "./formsPage/OtherEntriesPage";
+
+export * from "./dataGrid/DataGridPage";

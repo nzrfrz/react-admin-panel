@@ -7,3 +7,9 @@ export const publicRequest = axios.create({
   withCredentials: false,
   timeout: 60000,
 });
+
+export const privateRequest = axios.create({
+  baseURL: END_POINT,
+  withCredentials: true,
+  timeout: 60000,
+});

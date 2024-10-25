@@ -5,14 +5,16 @@ import {
     BasicFormsPage,
     DynamicFormPage,
     OtherEntriesPage,
-    DemoPage1,
-    DemoPage2A,
-    DemoPage2B,
+    DataGridPage,
+    // DemoPage1,
+    // DemoPage2A,
+    // DemoPage2B,
 } from "../pages";
 
 import { RxDot } from "react-icons/rx";
 import { LuFormInput } from "react-icons/lu";
-import { GiTargetDummy } from "react-icons/gi";
+// import { GiTargetDummy } from "react-icons/gi";
+import { CiViewTable } from "react-icons/ci";
 import { HomeOutlined } from "@ant-design/icons";
 
 export const sidebarRouteRegistry = [
@@ -60,6 +62,18 @@ export const sidebarRouteRegistry = [
         ],
     },
     {
+        key: "dataGrid",
+        label: <Link to="/data-grid" >Data Grid</Link>,
+        path: "/data-grid",
+        isIndex: false,
+        element: <DataGridPage />,
+        icon: <CiViewTable />,
+        children: undefined,
+    },
+];
+
+/*
+    {
         key: "breadcrumbSample",
         label: "Breadcrumb",
         path: "/breadcrumb",
@@ -102,4 +116,4 @@ export const sidebarRouteRegistry = [
             }
         ]
     }
-];
+*/

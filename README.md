@@ -40,7 +40,6 @@ props | value
 ---- | ----
 scrollx | boolean
 scrolly | boolean
-centerItems | boolean
 withBreadcrumb | boolean
 children | React.ReactNode
 - Usage
