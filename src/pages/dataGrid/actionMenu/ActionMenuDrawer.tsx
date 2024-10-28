@@ -20,16 +20,19 @@ export function ActionMenuDrawer() {
     setIsActionDrawerOpen,
     setSelectedRowData,
     isFormChangeDetected,
+    selectedRowData,
     setIsModalConfirmOpen,
     setModalConfirmType
   } = useContext(DataGridContext);
+  console.log(selectedRowData);
+  
 
   const { _handleDeleteFile, resetActionMenuState } = useItemEdit();
 
   const deleteConfirmation: ModalFuncProps = {
     title: 'Confirm Deletion!',
     content: (
-      <span>Are you sure you want to delete ...</span>
+      <span>Are you sure you want to delete {isActionDrawerOpen} ...?</span>
     ),
     closable: true,
     maskClosable: true,
@@ -88,11 +91,11 @@ export function ActionMenuDrawer() {
             icon={<DeleteOutlined />}
             tooltipTitle="Delete"
             tooltipPlacement="bottomLeft"
-            onClick={() => modal?.warning(deleteConfirmation)}
-            // onClick={() => {
-            //   setModalConfirmType && setModalConfirmType("record deletion");
-            //   setIsModalConfirmOpen && setIsModalConfirmOpen(true);
-            // }}
+            // onClick={() => modal?.warning(deleteConfirmation)}
+            onClick={() => {
+              setModalConfirmType && setModalConfirmType("record deletion");
+              setIsModalConfirmOpen && setIsModalConfirmOpen(true);
+            }}
             // onClick={showConfirm}
           // onClick={showDeleteConfirmation}
           />
@@ -135,9 +138,9 @@ export function ActionMenuDrawer() {
 
   const onCloseDrawer = useCallback(() => {
     if (isFormChangeDetected) {
-      // setModalConfirmType && setModalConfirmType("form changes detection");
-      // setIsModalConfirmOpen && setIsModalConfirmOpen(true);
-      modal?.warning(editConfirmation);
+      setModalConfirmType && setModalConfirmType("form changes detection");
+      setIsModalConfirmOpen && setIsModalConfirmOpen(true);
+      // modal?.warning(editConfirmation);
       // console.log("form changes detected");
       return;
     }

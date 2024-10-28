@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import { CustomButton } from "./CustomButton";
 
-import { Modal } from "antd";
+import { Divider, Modal } from "antd";
 import { ExclamationCircleFilled } from '@ant-design/icons';
 
 export type modalConfirmType = "record deletion" | "form changes detection" | undefined;
@@ -34,7 +34,7 @@ export const ModalConfirm: React.FC<ThisProps> = ({
 
     return (
       <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-        <ExclamationCircleFilled style={{ color: "gold", fontSize: 24 }} />
+        <ExclamationCircleFilled style={{ color: "#ca4e0d", fontSize: 24 }} />
         {title}
       </div>
     );
@@ -42,10 +42,12 @@ export const ModalConfirm: React.FC<ThisProps> = ({
 
   const renderModalContent = useMemo(() => {
     if (confirmType === "record deletion") return (
-      <span>Are you sure you want to delete {selectedItemName} ...?</span>
+      <div style={{ marginTop: 16 }}>
+        <span>Are you sure you want to delete {selectedItemName} ...?</span>
+      </div>
     );
     else return (
-      <div style={{ display: "flex", flexDirection: "column" }}>
+      <div style={{ display: "flex", flexDirection: "column", marginTop: 16 }}>
         <span>Your changes will not be saved,</span>
         <span>your uploaded image will also be deleted.</span>
         <div style={{ marginTop: 16 }}>
@@ -58,7 +60,7 @@ export const ModalConfirm: React.FC<ThisProps> = ({
   return (
     <Modal
       centered
-      width={400}
+      width={417}
       open={modalOpen}
       closable={closable}
       onCancel={onCancel}

@@ -13,3 +13,5 @@ export * from "./stripCountryCode";
 
 export * from "./generateUniqueID";
 export * from "./toTitleCase";
+
+export * from "./secureStorage";

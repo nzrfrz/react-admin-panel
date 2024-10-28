@@ -70,15 +70,15 @@ export function FnBDataGrid() {
       </div>
 
       <ActionMenuDrawer />
-      {/* <ModalConfirm
+      <ModalConfirm
         closable={true}
         isLoading={false}
         modalOpen={isModalConfirmOpen}
         confirmType={modalConfirmType}
         selectedItemName={selectedRowData?.name}
         onCancel={() => setIsModalConfirmOpen && setIsModalConfirmOpen(false)}
-        footerButtonClick={handleModalConfirmFooterButton}
-      /> */}
+        footerButtonClick={() => {}}
+      />
     </MainContainer>
   );
 };

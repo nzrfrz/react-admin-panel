@@ -5,6 +5,8 @@ import {
   initialUploadResultsValue,
   nonImageAllowedFileType,
   nonImageFileTypeData,
+  removeLS,
+  saveLS,
   uploadResponseType,
   UploadResultProps,
 } from "../../_utils";
@@ -58,9 +60,11 @@ export const useSelectFile = (
             fileResults: uploadResponse?.data.fileResults as FileResultsProps,
           }
         });
+        saveLS("uploadResults", JSON.stringify(uploadResponse?.data.fileResults));
         break;
       case "success delete":
         setUploadResults({ ...initialUploadResultsValue });
+        removeLS("uploadResults");
         break;
       case "error":
         setUploadResults((prev) => {
