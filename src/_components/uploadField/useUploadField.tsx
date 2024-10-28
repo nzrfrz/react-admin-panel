@@ -82,7 +82,7 @@ export const useUploadField = (
   useEffect(() => {
     setUploadResults({...initialUploadResultsValue});
   }, [toUploadFileType]);
-  console.log("\nupload results: \n", setImageSrc);
+  // console.log("\nupload results: \n", setImageSrc);
 
   return {
     previewImageStyles,

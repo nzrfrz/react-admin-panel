@@ -10,7 +10,7 @@ import { FiMoreVertical } from "react-icons/fi";
 interface ThisProps {
   isLoading: boolean,
   tableData?: FnBProps[] | undefined,
-}
+};
 
 export const TableData: React.FC<ThisProps> = ({
   isLoading,
@@ -19,7 +19,14 @@ export const TableData: React.FC<ThisProps> = ({
 
   const {
     tableHeight,
+    setIsActionDrawerOpen,
+    setSelectedRowData,
   } = useContext(DataGridContext);
+
+  const onClickActionMenu = (rowData: FnBProps) => {
+    setSelectedRowData && setSelectedRowData(rowData);
+    setIsActionDrawerOpen && setIsActionDrawerOpen(true);
+  };
   // console.log(tableHeight);
 
   const columns: TableProps<FnBProps>["columns"] = [
@@ -79,6 +86,7 @@ export const TableData: React.FC<ThisProps> = ({
             size="small"
             shape="circle"
             icon={<FiMoreVertical />}
+            onClick={() => onClickActionMenu(record)}
           />
         </div>
       )

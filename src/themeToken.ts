@@ -1,3 +1,4 @@
+import { Segmented } from "antd";
 
 export const themeToken = (isDarkMode: boolean): Record<string, any> => {
     return {
@@ -41,6 +42,9 @@ export const themeComponents = (isDarkMode: boolean): Record<string, any> => {
             },
             Divider: {
                 verticalMarginInline: "0",
+            },
+            Segmented: {
+                trackBg: isDarkMode === true ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.7)",
             },
             Card: {},
             Select: {}

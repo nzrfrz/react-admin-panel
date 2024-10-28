@@ -1,6 +1,7 @@
 import { FileResultsProps } from "./uploadFileProps";
 
 export interface FnbCategoryProps {
+  map: any;
   id: string,
   title: string,
   slug: string,
@@ -14,4 +15,11 @@ export interface FnBProps {
   price: number,
   status: string,
   category: FnbCategoryProps,
+};
+
+export interface FnBFormValuesProps {
+  category: string,
+  description: string,
+  price: number,
+  name: string,
 };

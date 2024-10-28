@@ -1,5 +1,8 @@
 import { createContext } from "react";
 import { FormInstance } from "antd";
+import { FnBProps } from "../_utils";
+import { HookAPI } from "antd/es/modal/useModal";
+import { modalConfirmType } from "../_components";
 
 export type dataGridTabType = 'detail' | 'edit';
 export type notificationType = 'success' | 'info' | 'warning' | 'error';
@@ -18,6 +21,7 @@ export interface GlobalContextProps {
 
 export interface DataGridContextProps {
   form: FormInstance | undefined,
+  modal: HookAPI | undefined,
   dataGridContainerRef: React.RefObject<HTMLDivElement> | null,
   page: number, 
   setPage: React.Dispatch<React.SetStateAction<number>> | undefined,
@@ -27,12 +31,16 @@ export interface DataGridContextProps {
   setSearchValue: React.Dispatch<React.SetStateAction<string>> | undefined,
   containerSize: { width: number, height: number },
   setContainerSize: React.Dispatch<React.SetStateAction<{ width: number, height: number }>> | undefined,
+  selectedRowData?: FnBProps | undefined, 
+  setSelectedRowData: React.Dispatch<React.SetStateAction<FnBProps | undefined>> | undefined,
   activeTabkey: dataGridTabType,
   setActiveTabkey: React.Dispatch<React.SetStateAction<dataGridTabType>> | undefined,
   isActionDrawerOpen: boolean,
   setIsActionDrawerOpen: React.Dispatch<React.SetStateAction<boolean>> | undefined,
-  isConfirmModalOpen: boolean,
-  setIsConfirmModalOpen: React.Dispatch<React.SetStateAction<boolean>> | undefined,
+  isModalConfirmOpen: boolean,
+  setIsModalConfirmOpen: React.Dispatch<React.SetStateAction<boolean>> | undefined,
+  modalConfirmType: modalConfirmType, 
+  setModalConfirmType: React.Dispatch<React.SetStateAction<modalConfirmType>> | undefined,
   isFormChangeDetected: boolean,
   setIsFormChangeDetected: React.Dispatch<React.SetStateAction<boolean>> | undefined,
   isOnMutateData: boolean,
@@ -52,6 +60,7 @@ const initialGlobalContextValue: GlobalContextProps = {
 
 const initialDataGridContextValue: DataGridContextProps = {
   form: undefined,
+  modal: undefined,
   dataGridContainerRef: null,
   page: 1, 
   setPage: () => {},
@@ -61,12 +70,16 @@ const initialDataGridContextValue: DataGridContextProps = {
   setSearchValue: () => {},
   containerSize: { width: 0, height: 0 },
   setContainerSize: () => {},
+  selectedRowData: undefined, 
+  setSelectedRowData: () => {},
   activeTabkey: "detail",
   setActiveTabkey: () => {},
   isActionDrawerOpen: false,
   setIsActionDrawerOpen: () => {},
-  isConfirmModalOpen: false,
-  setIsConfirmModalOpen: () => {},
+  isModalConfirmOpen: false,
+  setIsModalConfirmOpen: () => {},
+  modalConfirmType: undefined, 
+  setModalConfirmType: () => {},
   isFormChangeDetected: false,
   setIsFormChangeDetected: () => {},
   isOnMutateData: false,

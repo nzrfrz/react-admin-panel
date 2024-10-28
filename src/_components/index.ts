@@ -5,6 +5,7 @@ export * from "./layout/MainContainer";
 export * from "./customBreadcrumb/CustomBreadcrumb";
 
 export * from "./CustomButton";
+export * from "./ModalConfirm";
 
 export * from "./formItems/InputForm";
 export * from "./formItems/DatePickerForm";

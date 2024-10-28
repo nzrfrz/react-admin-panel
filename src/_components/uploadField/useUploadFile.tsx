@@ -25,9 +25,11 @@ export const useUploadFile = (
   };
 
   const handleDeleteFile = async (fileName: string) => {
+    console.log("\n delete file -- file name: \n", fileName);
+    
     const response = await publicRequest.delete(`${deleteApiEndpoint}${fileName}`);
     return response.data;
-  }
+  };
 
   return {
     handleDeleteFile,

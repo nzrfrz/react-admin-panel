@@ -1,10 +1,13 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import { Form } from "antd";
+import { Form, Modal } from "antd";
 import { DataGridContext, dataGridTabType } from "./contextCreate";
+import { FnBProps } from "../_utils";
+import { modalConfirmType } from "../_components";
 
 export const DataGridContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [form] = Form.useForm();
+  const [modal, contextHolder] = Modal.useModal();
   const dataGridContainerRef = useRef<HTMLDivElement | null>(null);
 
   const [page, setPage] = useState(1);
@@ -13,9 +16,12 @@ export const DataGridContextProvider: React.FC<{ children: React.ReactNode }> = 
 
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
 
+  const [selectedRowData, setSelectedRowData] = useState<FnBProps | undefined>(undefined);
+
   const [activeTabkey, setActiveTabkey] = useState<dataGridTabType>("detail");
   const [isActionDrawerOpen, setIsActionDrawerOpen] = useState(false);
-  const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+  const [isModalConfirmOpen, setIsModalConfirmOpen] = useState(false);
+  const [modalConfirmType, setModalConfirmType] = useState<modalConfirmType | undefined>(undefined);
   const [isFormChangeDetected, setIsFormChangeDetected] = useState(false);
   const [isOnMutateData, setIsOnMutateData] = useState(false);
 
@@ -29,13 +35,6 @@ export const DataGridContextProvider: React.FC<{ children: React.ReactNode }> = 
     if (newWidth !== containerSize.width || newHeight !== containerSize.height) {
       setContainerSize({ width: newWidth, height: newHeight });
     }
-
-    /*
-    setContainerSize({
-      width: dataGridContainerRef.current.clientWidth,
-      height: dataGridContainerRef.current.clientHeight,
-    });
-    */
   };
 
   const tableHeight = useMemo(() => {
@@ -58,14 +57,17 @@ export const DataGridContextProvider: React.FC<{ children: React.ReactNode }> = 
 
   const contextValues = {
     form,
+    modal,
     dataGridContainerRef,
     page, setPage,
     limitPerPage, setLimitPerPage,
     searchValue, setSearchValue,
     containerSize, setContainerSize,
+    selectedRowData, setSelectedRowData,
     activeTabkey, setActiveTabkey,
     isActionDrawerOpen, setIsActionDrawerOpen,
-    isConfirmModalOpen, setIsConfirmModalOpen,
+    isModalConfirmOpen, setIsModalConfirmOpen,
+    modalConfirmType, setModalConfirmType,
     isFormChangeDetected, setIsFormChangeDetected,
     isOnMutateData, setIsOnMutateData,
     tableHeight,
@@ -74,6 +76,7 @@ export const DataGridContextProvider: React.FC<{ children: React.ReactNode }> = 
   return (
     <DataGridContext.Provider value={contextValues}>
       {children}
+      {contextHolder}
     </DataGridContext.Provider>
   );
 };

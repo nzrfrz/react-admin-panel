@@ -3,9 +3,10 @@ import { DataGridContext } from "../../context/contextCreate";
 import { useNavigate } from "react-router-dom";
 import { FnBProps, useQueryHook } from "../../_utils";
 import { ApiSuccessResponse, PaginatedMetaProps } from "../../_utils/props/apiResponseProps";
-import { MainContainer } from "../../_components";
+import { MainContainer, ModalConfirm } from "../../_components";
 import { TableData } from "./TableData";
 import { Pagination } from "antd";
+import { ActionMenuDrawer } from "./actionMenu/ActionMenuDrawer";
 
 export function FnBDataGrid() {
   const navigateTo = useNavigate();
@@ -17,6 +18,10 @@ export function FnBDataGrid() {
     searchValue, setSearchValue,
     dataGridContainerRef,
     containerSize,
+    isModalConfirmOpen,
+    setIsModalConfirmOpen,
+    modalConfirmType,
+    selectedRowData,
   } = useContext(DataGridContext);
 
   const fnbList = useQueryHook<ApiSuccessResponse<{ meta: PaginatedMetaProps, fnbList: FnBProps[] }>>(
@@ -63,6 +68,17 @@ export function FnBDataGrid() {
           }
         </div>
       </div>
+
+      <ActionMenuDrawer />
+      {/* <ModalConfirm
+        closable={true}
+        isLoading={false}
+        modalOpen={isModalConfirmOpen}
+        confirmType={modalConfirmType}
+        selectedItemName={selectedRowData?.name}
+        onCancel={() => setIsModalConfirmOpen && setIsModalConfirmOpen(false)}
+        footerButtonClick={handleModalConfirmFooterButton}
+      /> */}
     </MainContainer>
   );
 };
