@@ -1,10 +1,10 @@
 import { FileResultsProps } from "./uploadFileProps";
 
 export interface FnbCategoryProps {
-  map: any;
-  id: string,
-  title: string,
-  slug: string,
+  map?: any;
+  id?: string,
+  title?: string,
+  slug?: string,
 };
 
 export interface FnBProps {

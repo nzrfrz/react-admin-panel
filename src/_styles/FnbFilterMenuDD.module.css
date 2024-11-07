@@ -1,0 +1,57 @@
+.customDDContainer {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 5px;
+  background-color: var(--clrBGContainer);
+  border-radius: var(--borderRadusLG);
+  box-shadow: var(--boxShadow);
+}
+
+.sectionTitle {
+  color: grey;
+  padding: 5px 12px;
+}
+
+.sectionContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 12px 5px 24px;
+}
+
+.sectionContent:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--clrBGTextHover);
+}
+
+.sectionContentActive {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 5px 12px 5px 24px;
+  border-radius: 8px;
+  color: var(--clrPrimaryText);
+  background-color: var(--clrPrimaryBG);
+}
+
+.sectionContentActive:hover {
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: var(--clrBGTextHover);
+}
+
+.categoryOptionWrapper {
+  height: 98px;
+  padding-right: 4px;
+  overflow-y: scroll;
+}
+
+.loadingSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 24px;
+}

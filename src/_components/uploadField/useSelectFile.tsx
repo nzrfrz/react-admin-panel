@@ -5,16 +5,17 @@ import {
   initialUploadResultsValue,
   nonImageAllowedFileType,
   nonImageFileTypeData,
-  removeLS,
-  saveLS,
   uploadResponseType,
   UploadResultProps,
 } from "../../_utils";
 import { ApiErrorResponse, ApiSuccessResponse } from "../../_utils/props/apiResponseProps";
 import { UploadChangeParam, UploadFile } from "antd/es/upload";
 import { useUploadFile } from "./useUploadFile";
+import { FormInstance } from "antd";
 
 export const useSelectFile = (
+  formInstance: FormInstance | undefined,
+  formItemName: string | undefined,
   uploadFileType: fileType,
   uploadResults: UploadResultProps,
   setUploadResults: React.Dispatch<React.SetStateAction<UploadResultProps>>,
@@ -60,11 +61,15 @@ export const useSelectFile = (
             fileResults: uploadResponse?.data.fileResults as FileResultsProps,
           }
         });
-        saveLS("uploadResults", JSON.stringify(uploadResponse?.data.fileResults));
+        if (formInstance !== undefined && formItemName !== undefined) {
+          // console.log("\n success upload: \n", uploadResponse?.data.fileResults);
+          formInstance.setFieldsValue({
+            [formItemName]: uploadResponse?.data.fileResults as FileResultsProps,
+          });
+        }
         break;
       case "success delete":
         setUploadResults({ ...initialUploadResultsValue });
-        removeLS("uploadResults");
         break;
       case "error":
         setUploadResults((prev) => {
@@ -73,7 +78,7 @@ export const useSelectFile = (
             isLoading: false,
             statusAction: "error",
             statusCode: errorResponse?.status as number,
-            statusMessage: errorResponse?.response.data.data.message as string,
+            statusMessage: errorResponse?.response.data.message as string,
           }
         });
         break;

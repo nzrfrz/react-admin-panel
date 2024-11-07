@@ -22,7 +22,7 @@ export const useQueryHook = <T>(
     placeholderData: keepPreviousData,
     retry: (_, error) => {
       // Retry on failure unless it's a 401 (unauthorized) error
-      return error.response?.status !== 401;
+      return error.status !== 401;
     },
   });
 

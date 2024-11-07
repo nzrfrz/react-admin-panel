@@ -4,11 +4,19 @@ import { fileType, nonImageAllowedFileType, UploadResultProps } from "../../_uti
 
 import { CustomButton } from "../CustomButton";
 
-import { Image, theme, Upload } from "antd";
+import { FormInstance, Image, theme, Upload } from "antd";
 import { UploadOutlined } from '@ant-design/icons';
 import styles from "../../_styles/UploadField.module.css";
 
-interface ThiProps {
+// const objectKey = "someKey";
+// const objects = {
+//   [objectKey]: "some object value"
+// }
+// console.log(objects);
+
+interface ThisProps {
+  formInstance?: FormInstance | undefined,
+  formItemName?: string | undefined,
   uploadResults: UploadResultProps,
   setUploadResults: React.Dispatch<React.SetStateAction<UploadResultProps>>,
   previewImage?: boolean,
@@ -18,7 +26,9 @@ interface ThiProps {
   deleteApiEndpoint: string,
 };
 
-export const UploadField: React.FC<ThiProps> = ({
+export const UploadField: React.FC<ThisProps> = ({
+  formInstance,
+  formItemName,
   uploadResults,
   setUploadResults,
   previewImage = true,
@@ -39,7 +49,10 @@ export const UploadField: React.FC<ThiProps> = ({
     showHiddenPreview, setShowHiddenPreview,
     scaleStep,
     onClickHelperMessage,
+    setImageObjectFit,
   } = useUploadField(
+    formInstance,
+    formItemName,
     uploadResults,
     setUploadResults,
     styles,
@@ -51,6 +64,8 @@ export const UploadField: React.FC<ThiProps> = ({
   const {
     onSelectFile,
   } = useSelectFile(
+    formInstance,
+    formItemName,
     toUploadFileType,
     uploadResults,
     setUploadResults,
@@ -77,7 +92,7 @@ export const UploadField: React.FC<ThiProps> = ({
               preview={false}
               src={setImageSrc}
               fallback={import.meta.env.VITE_BROKEN_IMAGE_URL}
-              style={{ objectFit: "cover", borderRadius: borderRadiusSM }}
+              style={{ objectFit: setImageObjectFit as any, borderRadius: borderRadiusSM }}
             />
           }
           <div className={previewImageStyles.uploadButtonWrapper}>
@@ -113,7 +128,7 @@ export const UploadField: React.FC<ThiProps> = ({
         </span>
       </div>
       {renderProgress}
-      <Image 
+      <Image
         style={{ display: 'none' }}
         preview={{
           visible: showHiddenPreview,

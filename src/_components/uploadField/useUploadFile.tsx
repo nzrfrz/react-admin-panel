@@ -1,4 +1,4 @@
-import { publicRequest, UploadResultProps } from "../../_utils";
+import { initialUploadResultsValue, publicRequest, UploadResultProps } from "../../_utils";
 
 export const useUploadFile = (
   uploadApiEndpoint: string,
@@ -25,9 +25,12 @@ export const useUploadFile = (
   };
 
   const handleDeleteFile = async (fileName: string) => {
-    console.log("\n delete file -- file name: \n", fileName);
-    
+    setUploadResults({
+      ...initialUploadResultsValue,
+      isLoading: true
+    });
     const response = await publicRequest.delete(`${deleteApiEndpoint}${fileName}`);
+    setUploadResults(initialUploadResultsValue);
     return response.data;
   };
 

@@ -1,33 +1,18 @@
 import { useContext } from "react";
-import { DataGridContext } from "../../context/contextCreate";
-
-import { FnBProps } from "../../_utils";
-import { CustomButton } from "../../_components";
+import { FnbContext } from "./fnbContext/fnbContextCreate";
 
 import { Table, TableProps, Tag } from "antd";
 import { FiMoreVertical } from "react-icons/fi";
 
-interface ThisProps {
-  isLoading: boolean,
-  tableData?: FnBProps[] | undefined,
-};
+import { FnBProps } from "../../../_utils";
+import { CustomButton } from "../../../_components";
 
-export const TableData: React.FC<ThisProps> = ({
-  isLoading,
-  tableData
-}) => {
-
+export function FnbTableData () {
   const {
+    fnbList,
     tableHeight,
-    setIsActionDrawerOpen,
-    setSelectedRowData,
-  } = useContext(DataGridContext);
-
-  const onClickActionMenu = (rowData: FnBProps) => {
-    setSelectedRowData && setSelectedRowData(rowData);
-    setIsActionDrawerOpen && setIsActionDrawerOpen(true);
-  };
-  // console.log(tableHeight);
+    onClickActionMenu,
+  } = useContext(FnbContext);
 
   const columns: TableProps<FnBProps>["columns"] = [
     {
@@ -94,15 +79,13 @@ export const TableData: React.FC<ThisProps> = ({
   ];
 
   return (
-    <>
-      <Table
-        columns={columns}
-        pagination={false}
-        loading={isLoading}
-        dataSource={tableData}
-        rowKey={(record) => record.id}
-        scroll={{ x: 1200, y: tableHeight }}
-      />
-    </>
+    <Table
+      columns={columns}
+      pagination={false}
+      loading={fnbList?.isFetching}
+      dataSource={fnbList?.data?.data.itemList as FnBProps[]}
+      rowKey={(record) => record.id}
+      scroll={{ x: 1200, y: tableHeight }}
+    />
   );
 };

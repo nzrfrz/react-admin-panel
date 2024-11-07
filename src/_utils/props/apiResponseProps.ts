@@ -5,6 +5,7 @@ export interface PaginatedMetaProps {
 };
 
 export interface ApiSuccessResponse<T = unknown> {
+  nextCursor: unknown
   status: number,
   message: string,
   data: T,
@@ -14,8 +15,10 @@ export interface ApiErrorResponse<T = unknown> {
   status: number,
   message: string,
   response: {
-    status: number,
-    message: string,
-    data: T,
+    data: {
+      status: number,
+      message: string,
+      data: T,
+    }
   }
 };

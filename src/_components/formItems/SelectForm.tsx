@@ -19,6 +19,7 @@ interface ThisProps {
     label?: string,
     size?: fieldSize,
     noStyle?: boolean,
+    isLoading?: boolean,
     disabled?: boolean,
     placeholder?: string,
     hasFeedback?: boolean,
@@ -41,6 +42,7 @@ export const SelectForm: React.FC<ThisProps> = ({
     name, 
     label, 
     disabled,
+    isLoading,
     placeholder, 
     hasFeedback, 
     validateStatus,
@@ -92,6 +94,7 @@ export const SelectForm: React.FC<ThisProps> = ({
         >
             <Select 
                 size={size}
+                loading={isLoading}
                 disabled={disabled}
                 options={optionItems}
                 showSearch={showSearch}
