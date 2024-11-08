@@ -13,7 +13,7 @@ export const DemoPage2B = () => {
     };
 
     return (
-        <MainContainer centerItems={true} >
+        <MainContainer>
             <Result
                 title="Demo Page 2 B"
                 subTitle={

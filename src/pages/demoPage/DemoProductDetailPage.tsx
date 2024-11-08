@@ -11,7 +11,7 @@ export function DemoProductDetailPage () {
     };
 
     return (
-        <MainContainer centerItems={true} withBreadcrumb >
+        <MainContainer withBreadcrumb >
             <Result
                 title={`Product ${id} Detail Page`}
                 subTitle={

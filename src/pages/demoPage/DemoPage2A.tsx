@@ -3,7 +3,7 @@ import { MainContainer } from "../../_components";
 
 export const DemoPage2A = () => {
     return (
-        <MainContainer centerItems={true} >
+        <MainContainer>
             <Result
                 title="Demo Page 2 A"
                 subTitle={

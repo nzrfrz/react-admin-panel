@@ -7,7 +7,7 @@ export function DemoProductEditPage () {
     const { id } = useParams<{ id: string }>();
 
     return (
-        <MainContainer centerItems={true} withBreadcrumb>
+        <MainContainer withBreadcrumb>
             <Result
                 title={`Product ${id} Edit Page`}
                 subTitle={
