@@ -9,11 +9,11 @@ export const useFnbModalDeleteConfirm = () => {
   const {
     page,
     limitPerPage,
-    itemStatus,
     searchValue,
     selectedRowData,
     setIsDetailDrawerOpen,
     setModalDeleteConfirmOpen,
+    selectedFilterStatus,
   } = useContext(FnbContext);
 
   const { handleDeleteFile } = useUploadFile(
@@ -35,8 +35,8 @@ export const useFnbModalDeleteConfirm = () => {
     `/api/fnb/delete/id=${selectedRowData?.id}/`,
     "public",
     "delete",
-    `/api/fnb/get?page=${page}&limit=${limitPerPage}&status=${itemStatus}&q=${searchValue}`,
-    ["fnbList", page as number, limitPerPage as number, itemStatus, searchValue as string],
+    `/api/fnb/get?page=${page}&limit=${limitPerPage}&status=${selectedFilterStatus}&q=${searchValue}`,
+    ["fnbList", page as number, limitPerPage as number, selectedFilterStatus, searchValue as string],
     onSuccessMutate,
     onErrorMutate,
   );

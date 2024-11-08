@@ -12,7 +12,7 @@ export const GlobalContextProvider: React.FC<{ children: React.ReactNode }> = ({
   const [language, setLanguage] = useState<string>("en");
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
   const [api, contextHolder] = notification.useNotification();
-  const [messageApi, messageContextHolder] = message.useMessage();
+  // const [messageApi, messageContextHolder] = message.useMessage();
   
   const [windowDimension, setWindowDimension] = useState<windowDimensionData>({
     width: window.innerWidth,
@@ -68,7 +68,7 @@ export const GlobalContextProvider: React.FC<{ children: React.ReactNode }> = ({
           ...themeComponents(isDarkMode)
         }}
       >
-        {messageContextHolder}
+        {/* {messageContextHolder} */}
         {contextHolder}
         {children}
       </ConfigProvider>

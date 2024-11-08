@@ -34,9 +34,9 @@ export const useFnbForm = () => {
     formMode,
     selectedRowData,
     setIsFormDrawerOpen,
-    selectedCategoryFilter,
     selectedPriceFilter,
     selectedFilterStatus,
+    selectedCategoriesFilterOption,
   } = useContext(FnbContext);
 
   const {handleDeleteFile} = useUploadFile(
@@ -95,8 +95,8 @@ export const useFnbForm = () => {
     formMode === "add" ? "/api/fnb/insert/" : `/api/fnb/update/id=${selectedRowData?.id}/`,
     "public",
     formMode === "add" ? "post" : "put",
-    `/api/fnb/get?page=${page}&limit=${limitPerPage}&category=${selectedCategoryFilter}&priceFilter=${selectedPriceFilter}&status=${selectedFilterStatus}&q=${searchValue}`,
-    ["fnbList", page as number, limitPerPage as number, selectedPriceFilter, selectedFilterStatus, selectedCategoryFilter, searchValue as string],
+    `/api/fnb/get?page=${page}&limit=${limitPerPage}&category=${selectedCategoriesFilterOption}&priceFilter=${selectedPriceFilter}&status=${selectedFilterStatus}&q=${searchValue}`,
+    ["fnbList", page as number, limitPerPage as number, selectedPriceFilter, selectedFilterStatus, selectedCategoriesFilterOption, searchValue as string],
     onSuccessMutate,
     onErrorMutate,
   );
