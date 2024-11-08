@@ -1,5 +1,3 @@
-import { Segmented } from "antd";
-
 export const themeToken = (isDarkMode: boolean): Record<string, any> => {
     return {
         fontFamily: "Poppins",

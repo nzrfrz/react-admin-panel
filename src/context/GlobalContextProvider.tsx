@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { themeToken, themeComponents } from "../themeToken";
 import { GlobalContext, notificationType, windowDimensionData } from "./contextCreate";
 
-import { theme, ConfigProvider, notification, message } from "antd";
+import { theme, ConfigProvider, notification } from "antd";
 
 export const GlobalContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { defaultAlgorithm, darkAlgorithm } = theme;
