@@ -88,3 +88,171 @@ pre {
   text-overflow: ellipsis;
   padding-bottom: 2px;
 }
+
+/* ---*---*--- leaflet ---*---*--- */
+/* zoom control */
+.leaflet-control-zoom {
+  border: 0px !important;
+}
+
+.leaflet-control-zoom > a > span {
+  color: #0891b2;
+}
+
+.leaflet-control-zoom-in {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+
+.leaflet-control-zoom-out {
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+
+.leaflet-control-zoom-in > span,
+.leaflet-control-zoom-out > span {
+  color: var(--textColor);
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.leaflet-control-zoom-in > span:hover, 
+.leaflet-control-zoom-out > span:hover {
+  color: var(--clrPrimary);
+}
+
+.leaflet-control-zoom-in:hover, 
+.leaflet-control-zoom-out:hover {
+  border: 1px solid var(--clrPrimary) !important;
+}
+/* zoom control */
+
+/* draw control */
+.leaflet-draw-toolbar {
+  border: 0px !important;
+}
+
+.leaflet-draw-draw-polyline {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGContainer) !important;
+}
+
+.leaflet-draw-draw-polygon,
+.leaflet-draw-draw-rectangle,
+.leaflet-draw-draw-circle,
+.leaflet-draw-draw-marker {
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+
+.leaflet-draw-draw-circlemarker {
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+
+.leaflet-draw-draw-polyline {
+  background-image: url('./assets/leaflet/polilyne-icon.webp') !important;
+  background-size: 14px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-draw-polygon {
+  background-image: url('./assets/leaflet/polygon-icon.webp') !important;
+  background-size: 16px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-draw-rectangle {
+  background-image: url('./assets/leaflet/rectangle-icon.webp') !important;
+  background-size: 18px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-draw-circle {
+  background-image: url('./assets/leaflet/circle-icon.webp') !important;
+  background-size: 17px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-draw-marker {
+  background-image: url('./assets/leaflet/marker-icon.webp') !important;
+  background-size: 15px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-draw-circlemarker {
+  background-image: url('./assets/leaflet/circle-marker-icon.webp') !important;
+  background-size: 12px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-draw-polyline:hover,
+.leaflet-draw-draw-polygon:hover,
+.leaflet-draw-draw-rectangle:hover,
+.leaflet-draw-draw-circle:hover,
+.leaflet-draw-draw-marker:hover,
+.leaflet-draw-draw-circlemarker:hover {
+  border: 1px solid var(--clrPrimary) !important;
+  background-color: var(--clrPrimaryBGHov) !important;
+}
+/* draw control */
+
+/* action control */
+.leaflet-draw-edit-edit,
+.leaflet-draw-edit-edit.leaflet-disabled {
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+
+.leaflet-draw-edit-remove,
+.leaflet-draw-edit-remove.leaflet-disabled {
+  border-bottom-left-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+
+.leaflet-draw-edit-edit {
+  background-image: url('./assets/leaflet/edit-icon.webp') !important;
+  background-size: 16px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-edit-remove {
+  background-image: url('./assets/leaflet/delete-icon.webp') !important;
+  background-size: 16px !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+}
+
+.leaflet-draw-edit-edit:hover,
+.leaflet-draw-edit-remove:hover {
+  cursor: pointer !important;
+  border: 1px solid var(--clrPrimary) !important;
+}
+
+.leaflet-draw-edit-edit.leaflet-disabled:hover,
+.leaflet-draw-edit-remove.leaflet-disabled:hover {
+  cursor: not-allowed !important;
+  border: 1px solid var(--clrBorder) !important;
+  background-color: var(--clrBGElevated) !important;
+}
+/* action control */
+/* ---*---*--- leaflet ---*---*--- */

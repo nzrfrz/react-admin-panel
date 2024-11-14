@@ -14,6 +14,8 @@ import App from './App.tsx'
 
 import './index.css'
 import 'antd/dist/reset.css'
+import "leaflet/dist/leaflet.css";
+import "leaflet-draw/dist/leaflet.draw.css";
 
 const queryClient = new QueryClient();
 
@@ -27,4 +29,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       </BrowserRouter>
     </GlobalContextProvider>
   </QueryClientProvider>
-)
+);

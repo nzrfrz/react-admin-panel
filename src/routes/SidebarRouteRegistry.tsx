@@ -1,14 +1,15 @@
 import { Link } from "react-router-dom";
 
-import { 
-    Dashboard,
-    BasicFormsPage,
-    DynamicFormPage,
-    OtherEntriesPage,
-    FnbPage,
-    // DemoPage1,
-    // DemoPage2A,
-    // DemoPage2B,
+import {
+  Dashboard,
+  BasicFormsPage,
+  DynamicFormPage,
+  OtherEntriesPage,
+  FnbPage,
+  LeafletMap,
+  // DemoPage1,
+  // DemoPage2A,
+  // DemoPage2B,
 } from "../pages";
 
 import { RxDot } from "react-icons/rx";
@@ -16,60 +17,70 @@ import { LuFormInput } from "react-icons/lu";
 // import { GiTargetDummy } from "react-icons/gi";
 import { CiViewTable } from "react-icons/ci";
 import { HomeOutlined } from "@ant-design/icons";
+import { FaMapMarkedAlt } from "react-icons/fa";
 
 export const sidebarRouteRegistry = [
-    {
-        key: "dashboard",
-        label: <Link to="/dashboard">Dashboard</Link>,
-        path: "/dashboard",
-        isIndex: true,
-        element: <Dashboard />,
-        icon: <HomeOutlined />,
-        children: undefined,
-    },
-    {
-        key: "components",
-        label: "Components",
-        path: "/components",
-        isIndex: false,
-        element: null,
-        icon: <LuFormInput />,
-        children: [
-            {
-                key: "formItems",
-                label: <Link to="/components/form-items" >Form Items</Link>,
-                path: "/components/form-items",
-                element: <BasicFormsPage />,
-                icon: <RxDot/>,
-                children: undefined
-            },
-            {
-                key: "otherComponents",
-                label: <Link to="/components/other-entries" >Other Entries</Link>,
-                path: "/components/other-entries",
-                element: <OtherEntriesPage />,
-                icon: <RxDot/>,
-                children: undefined
-            },
-            {
-                key: "bulkForm",
-                label: <Link to="/components/bulk-form">Bulk Form</Link>,
-                path: "/components/bulk-form",
-                element: <DynamicFormPage />,
-                icon: <RxDot/>,
-                children: undefined
-            },
-        ],
-    },
-    {
-        key: "dataGrid",
-        label: <Link to="/data-grid" >Data Grid</Link>,
-        path: "/data-grid",
-        isIndex: false,
-        element: <FnbPage />,
-        icon: <CiViewTable />,
-        children: undefined,
-    },
+  {
+    key: "dashboard",
+    label: <Link to="/dashboard">Dashboard</Link>,
+    path: "/dashboard",
+    isIndex: true,
+    element: <Dashboard />,
+    icon: <HomeOutlined />,
+    children: undefined,
+  },
+  {
+    key: "components",
+    label: "Components",
+    path: "/components",
+    isIndex: false,
+    element: null,
+    icon: <LuFormInput />,
+    children: [
+      {
+        key: "formItems",
+        label: <Link to="/components/form-items" >Form Items</Link>,
+        path: "/components/form-items",
+        element: <BasicFormsPage />,
+        icon: <RxDot />,
+        children: undefined
+      },
+      {
+        key: "otherComponents",
+        label: <Link to="/components/other-entries" >Other Entries</Link>,
+        path: "/components/other-entries",
+        element: <OtherEntriesPage />,
+        icon: <RxDot />,
+        children: undefined
+      },
+      {
+        key: "bulkForm",
+        label: <Link to="/components/bulk-form">Bulk Form</Link>,
+        path: "/components/bulk-form",
+        element: <DynamicFormPage />,
+        icon: <RxDot />,
+        children: undefined
+      },
+    ],
+  },
+  {
+    key: "dataGrid",
+    label: <Link to="/data-grid" >Data Grid</Link>,
+    path: "/data-grid",
+    isIndex: false,
+    element: <FnbPage />,
+    icon: <CiViewTable />,
+    children: undefined,
+  },
+  {
+    key: "map",
+    label: <Link to="/map" >Map</Link>,
+    path: "/map",
+    isIndex: false,
+    element: <LeafletMap />,
+    icon: <FaMapMarkedAlt />,
+    children: undefined,
+  },
 ];
 
 /*

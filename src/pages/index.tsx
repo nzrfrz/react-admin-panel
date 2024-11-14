@@ -11,3 +11,5 @@ export * from "./formsPage/DynamicFormPage";
 export * from "./formsPage/OtherEntriesPage";
 
 export * from "./dataGrid/fnbDataGrid/FnbPage";
+
+export * from "./map/leaflet/LeafletMap";

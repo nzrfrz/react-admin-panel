@@ -8,6 +8,8 @@ function App() {
     token: {
       boxShadow,
       colorText,
+      colorPrimary,
+      colorPrimaryBgHover,
       colorPrimaryBg,
       colorPrimaryText,
       borderRadiusLG,
@@ -21,7 +23,9 @@ function App() {
     const root = document.documentElement;
     root.style.setProperty('--clrText', colorText);
     root.style.setProperty('--boxShadow', boxShadow);
+    root.style.setProperty('--clrPrimary', colorPrimary);
     root.style.setProperty('--clrPrimaryBG', colorPrimaryBg);
+    root.style.setProperty('--clrPrimaryBGHov', colorPrimaryBgHover);
     root.style.setProperty('--clrPrimaryText', colorPrimaryText);
     root.style.setProperty('--clrBGElevated', colorBgElevated);
     root.style.setProperty('--clrBGTextHover', colorBgTextHover);
@@ -29,8 +33,10 @@ function App() {
     root.style.setProperty('--borderRadusLG', `${borderRadiusLG}px`);
   }, [
     colorText, 
+    colorPrimary,
     colorPrimaryBg,
     colorPrimaryText,
+    colorPrimaryBgHover,
     colorBgTextHover, 
     colorBgElevated, 
     boxShadow, 
