@@ -13,3 +13,5 @@ export * from "./formsPage/OtherEntriesPage";
 export * from "./dataGrid/fnbDataGrid/FnbPage";
 
 export * from "./map/leaflet/LeafletMap";
+
+export * from "./regionData/RegionDataPage";

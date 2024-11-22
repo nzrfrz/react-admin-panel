@@ -7,6 +7,7 @@ import {
   OtherEntriesPage,
   FnbPage,
   LeafletMap,
+  RegionDataPage,
   // DemoPage1,
   // DemoPage2A,
   // DemoPage2B,
@@ -18,6 +19,7 @@ import { LuFormInput } from "react-icons/lu";
 import { CiViewTable } from "react-icons/ci";
 import { HomeOutlined } from "@ant-design/icons";
 import { FaMapMarkedAlt } from "react-icons/fa";
+import { TbWorldPin } from "react-icons/tb";
 
 export const sidebarRouteRegistry = [
   {
@@ -79,6 +81,15 @@ export const sidebarRouteRegistry = [
     isIndex: false,
     element: <LeafletMap />,
     icon: <FaMapMarkedAlt />,
+    children: undefined,
+  },
+  {
+    key: "regionData",
+    label: <Link to="/region-data" >Region Data</Link>,
+    path: "/region-data",
+    isIndex: false,
+    element: <RegionDataPage />,
+    icon: <TbWorldPin />,
     children: undefined,
   },
 ];

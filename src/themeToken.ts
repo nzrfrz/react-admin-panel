@@ -48,6 +48,9 @@ export const themeComponents = (isDarkMode: boolean): Record<string, any> => {
       Select: {},
       Popover: {
         colorBgElevated: isDarkMode === true ? "#2a3338" : "#ebf4f5",
+      },
+      TreeSelect: {
+        indentSize: 8
       }
     }
   };
