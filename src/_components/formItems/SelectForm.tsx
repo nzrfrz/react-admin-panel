@@ -29,10 +29,11 @@ interface ThisProps {
     isRulesRequired?: boolean,
     validateStatus?: validateStatus,
     selectOptions: DefaultOptionType[],
+    selectOnChange?: () => void | undefined,
 };
 
 export interface SelectOptionProps {
-    label: string,
+    label: string | React.ReactNode,
     value: string,
     slug?: string,
 };
@@ -55,6 +56,7 @@ export const SelectForm: React.FC<ThisProps> = ({
     hideSelected = false,
     selectMode = "single",
     isRulesRequired = true,
+    selectOnChange,
 }) => {
     const { language } = useContext(GlobalContext);
     
@@ -105,6 +107,7 @@ export const SelectForm: React.FC<ThisProps> = ({
                 mode={selectMode === "single" ? undefined : selectMode}
                 placeholder={placeholder === undefined ? `Select ${label}` : placeholder}
                 filterOption={filterOption as FilterFunc<DefaultOptionType> | boolean | undefined}
+                onChange={selectOnChange}
                 maxTagPlaceholder={(omittedValues) => {
                     if (selectMode === "single") return undefined;
                     else return (

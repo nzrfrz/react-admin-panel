@@ -45,12 +45,15 @@ export const themeComponents = (isDarkMode: boolean): Record<string, any> => {
         trackBg: isDarkMode === true ? "rgba(255, 255, 255, 0.2)" : "rgba(255, 255, 255, 0.7)",
       },
       Card: {},
-      Select: {},
+      Select: {
+        optionSelectedBg: "#1b2c34"
+      },
       Popover: {
         colorBgElevated: isDarkMode === true ? "#2a3338" : "#ebf4f5",
       },
       TreeSelect: {
-        indentSize: 8
+        indentSize: 8,
+        nodeSelectedBg: "#1b2c34"
       }
     }
   };

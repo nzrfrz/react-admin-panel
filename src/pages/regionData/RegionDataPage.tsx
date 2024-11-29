@@ -1,46 +1,85 @@
-import { useMemo, useState } from "react";
-import { MainContainer, SelectForm } from "../../_components";
+import { useState } from "react";
+
+import { useRegionSelect } from "./useRegionSelect";
+import { useCountrySelect } from "./useCountrySelect";
+import { useStateSelect } from "./useStateSelect";
+import { useCitySelect } from "./useCitySelect";
+
+import {
+  CustomButton,
+  MainContainer,
+  SelectForm,
+  SelectOptionProps,
+} from "../../_components";
 
 import { Col, Form, Row, TreeSelect } from 'antd';
-
-import regionDataMaster from "./regionDataJOSN/regions.json";
-import subRegionDataMaster from "./regionDataJOSN/subregions.json";
 import { generalValidation } from "../../_utils";
-
-import styles from "../../_styles/RegionData.module.css";
 
 export function RegionDataPage() {
   const [form] = Form.useForm();
-  const [value, setValue] = useState<string>();
+  const [value, setValue] = useState("");
 
-  const regionUseWatch = Form.useWatch("region", form);
-  console.log(regionUseWatch);
+  const {
+    selectedRegion,
+    regionSelectOptions,
+    selectedRegionDetails,
+  } = useRegionSelect(form);
 
+  const {
+    selectedCountry,
+    countryFormHelper,
+    countryListLoading,
+    countrySelectOptions,
+    selectedCountryDetails
+  } = useCountrySelect(form, selectedRegion);
 
-  const treeData = useMemo(() => {
-    return regionDataMaster.map((regionData) => {
-      return {
-        selectable: false,
-        title: regionData.name,
-        value: `${regionData.name.toLowerCase()}-${regionData.id}`,
-        children: subRegionDataMaster.filter((subRegionData) => subRegionData.region_id === regionData.id).map((subRegionFiltered) => {
-          return {
-            title: subRegionFiltered.name,
-            value: subRegionFiltered.id,
-          }
-        })
-      }
-    })
-  }, [regionDataMaster, subRegionDataMaster]);
+  const {
+    selectedState,
+    stateFormHelper,
+    stateFormRequired,
+    stateSelectOptions,
+    selectedStateDetails,
+    stateListLoading,
+  } = useStateSelect(form, selectedCountry);
 
-  const onChange = (newValue: string) => {
-    setValue(newValue);
+  const {
+    cityFormHelper,
+    cityListLoading,
+    cityFormRequired,
+    citySelectOptions,
+    selectedCityDetails,
+  } = useCitySelect(form, selectedState, selectedCountry, stateSelectOptions as any);
+
+  // console.log(stateSelectOptions);
+
+  const ColWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    return (
+      <Col
+        xs={{ flex: '100%' }}
+        sm={{ flex: '50%' }}
+        md={{ span: 6 }}
+        lg={{ flex: '25%' }}
+        xl={{ flex: '100%' }}
+      >
+        {children}
+      </Col>
+    );
   };
-  console.log("\n value: \n", value);
+
+  const onSubmitForm = () => {
+    const formData = {
+      region: selectedRegionDetails,
+      country: selectedCountryDetails,
+      state: selectedStateDetails,
+      city: selectedCityDetails
+    }
+    setValue(formData as any);
+    // console.log(formData);
+  };
 
   return (
-    <MainContainer>
-      <div style={{ display: "flex", height: "inherit", flexDirection: "column", gap: 8 }}>
+    <MainContainer scrolly>
+      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
         <div>
           <h1>Region Data</h1>
         </div>
@@ -50,11 +89,10 @@ export function RegionDataPage() {
           scrollToFirstError
           wrapperCol={{ span: 24 }}
           style={{ width: "100%" }}
-        // onFinish={onSubmitForm}
+          onFinish={onSubmitForm}
         >
-          <div className={styles.formItemContainer}>
-
-            <div className={styles.formItemEachWrapper}>
+          <Row gutter={[8, 8]} style={{ width: "100%" }}>
+            <ColWrapper>
               <Form.Item
                 name="region"
                 label="Region"
@@ -62,114 +100,75 @@ export function RegionDataPage() {
                 rules={generalValidation.find((item) => item.language === "en")?.fieldRules}
               >
                 <TreeSelect
-                  treeData={treeData}
                   placeholder="Select Region"
                   treeDefaultExpandedKeys={[1]}
+                  treeData={regionSelectOptions}
+                  loading={countryListLoading || stateListLoading || cityListLoading}
+                  disabled={countryListLoading || stateListLoading || cityListLoading}
                 />
               </Form.Item>
-            </div>
-
-            <div className={styles.formItemEachWrapper}>
+            </ColWrapper>
+            <ColWrapper>
               <SelectForm
-                name="countries"
-                label="Countries"
+                name="country"
+                label="Country"
                 allowClear={true}
-                showSearch={true}
+                showSearch={false}
                 requiredMark={true}
-              // hideSelected={isHideSelected}
-              // selectOptions={selectOptionsData}
-              // selectMode={selectMode as undefined}
+                selectMode="single"
+                help={countryFormHelper || undefined}
+                selectOptions={countrySelectOptions as SelectOptionProps[]}
+                isLoading={countryListLoading || stateListLoading || cityListLoading}
+                disabled={countryListLoading || stateListLoading || cityListLoading}
               />
-            </div>
-
-            <div className={styles.formItemEachWrapper}>
+            </ColWrapper>
+            <ColWrapper>
               <SelectForm
-                name="states"
-                label="States"
+                name="state"
+                label="State"
                 allowClear={true}
-                showSearch={true}
-                requiredMark={true}
-              // hideSelected={isHideSelected}
-              // selectOptions={selectOptionsData}
-              // selectMode={selectMode as undefined}
+                showSearch={false}
+                selectMode="single"
+                help={stateFormHelper}
+                requiredMark={stateFormRequired}
+                isRulesRequired={stateFormRequired}
+                selectOptions={stateSelectOptions as SelectOptionProps[]}
+                isLoading={countryListLoading || stateListLoading || cityListLoading}
+                disabled={countryListLoading || stateListLoading || cityListLoading}
               />
-            </div>
-
-            <div className={styles.formItemEachWrapper}>
+            </ColWrapper>
+            <ColWrapper>
               <SelectForm
-                name="cities"
-                label="Cities"
+                name="city"
+                label="City"
                 allowClear={true}
-                showSearch={true}
-                requiredMark={true}
-              // hideSelected={isHideSelected}
-              // selectOptions={selectOptionsData}
-              // selectMode={selectMode as undefined}
+                showSearch={false}
+                selectMode="single"
+                help={cityFormHelper}
+                requiredMark={cityFormRequired}
+                isRulesRequired={cityFormRequired}
+                selectOptions={citySelectOptions as SelectOptionProps[]}
+                isLoading={countryListLoading || stateListLoading || cityListLoading}
+                disabled={countryListLoading || stateListLoading || cityListLoading}
               />
-            </div>
-
+            </ColWrapper>
+          </Row>
+          <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 8 }}>
+            <CustomButton
+              htmlType="submit"
+              colorType="success"
+              loading={countryListLoading || stateListLoading || cityListLoading}
+            >
+              Submit
+            </CustomButton>
           </div>
         </Form>
+      </div>
+
+      <div style={{ display: value === "" ? "none" : "flex", flexDirection: "column", gap: 8 }}>
+        <span>Form Value: </span>
+        <pre>{JSON.stringify(value, null, 2)}</pre>
       </div>
     </MainContainer>
   );
 };
-
-/*
-
-          <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", columnGap: 16, rowGap: 8 }}>
-            <div style={{ flex: "1 1 150px" }}>
-              <Form.Item
-                name="region"
-                label="Region"
-                required={true}
-                rules={generalValidation.find((item) => item.language === "en")?.fieldRules}
-              >
-                <TreeSelect
-                  treeData={treeData}
-                  placeholder="Select Region"
-                  treeDefaultExpandedKeys={[1]}
-                />
-              </Form.Item>
-            </div>
-
-            <div style={{ flex: "1 1 150px" }}>
-              <SelectForm
-                name="countries"
-                label="Countries"
-                allowClear={true}
-                showSearch={true}
-                requiredMark={true}
-                // hideSelected={isHideSelected}
-                // selectOptions={selectOptionsData}
-                // selectMode={selectMode as undefined}
-              />
-            </div>
-
-            <div style={{ flex: "1 1 150px" }}>
-              <SelectForm
-                name="states"
-                label="States"
-                allowClear={true}
-                showSearch={true}
-                requiredMark={true}
-              // hideSelected={isHideSelected}
-              // selectOptions={selectOptionsData}
-              // selectMode={selectMode as undefined}
-              />
-            </div>
-
-            <div style={{ flex: "1 1 150px" }}>
-              <SelectForm
-                name="cities"
-                label="Cities"
-                allowClear={true}
-                showSearch={true}
-                requiredMark={true}
-              // hideSelected={isHideSelected}
-              // selectOptions={selectOptionsData}
-              // selectMode={selectMode as undefined}
-              />
-            </div>
-          </div>
-*/

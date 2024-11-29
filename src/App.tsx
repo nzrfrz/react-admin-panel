@@ -1,6 +1,10 @@
-import { theme } from 'antd';
-import { MainRoutes } from './routes/MainRoutes'
 import { useEffect } from 'react';
+import { MainRoutes } from './routes/MainRoutes'
+
+import { theme } from 'antd';
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
+
+polyfillCountryFlagEmojis();
 
 function App() {
 

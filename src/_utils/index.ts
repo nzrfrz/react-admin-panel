@@ -1,7 +1,8 @@
 export * from "./props/sidebarMenuProps";
 export * from "./props/uploadFileProps";
 export * from "./props/fnbDataProps";
-export * from "./props/apiResponseProps"
+export * from "./props/apiResponseProps";
+export * from "./props/regionDataProps";
 
 export * from "./api/axiosInstance";
 export * from "./api/useQueryHook";
