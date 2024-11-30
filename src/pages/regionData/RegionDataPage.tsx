@@ -25,6 +25,16 @@ export function RegionDataPage() {
     selectedRegionDetails,
   } = useRegionSelect(form, setValue);
 
+  const [treeSelectDefaultExpandedKeys, setTreeSelectDefaultExpandedKeys] = useState(regionSelectOptions[0].value);
+
+  const onSelectedRegion = (value: string | number) => {
+    const temp = regionSelectOptions.find((option) => {
+      return option.children.find((childOption) => childOption.value === value)
+    });
+    setTreeSelectDefaultExpandedKeys(temp?.value as string);
+    console.log(temp?.value);
+  };
+
   const {
     selectedCountry,
     countryFormHelper,
@@ -49,8 +59,8 @@ export function RegionDataPage() {
     citySelectOptions,
     selectedCityDetails,
   } = useCitySelect(
-    form,  
-    selectedState, 
+    form,
+    selectedState,
     selectedCountry,
     stateSelectOptions as SelectOptionProps[]
   );
@@ -106,10 +116,11 @@ export function RegionDataPage() {
               >
                 <TreeSelect
                   placeholder="Select Region"
-                  treeDefaultExpandedKeys={[1]}
                   treeData={regionSelectOptions}
+                  treeDefaultExpandedKeys={[treeSelectDefaultExpandedKeys]}
                   loading={countryListLoading || stateListLoading || cityListLoading}
                   disabled={countryListLoading || stateListLoading || cityListLoading}
+                  onSelect={(value: string | number) => onSelectedRegion(value)}
                 />
               </Form.Item>
             </ColWrapper>

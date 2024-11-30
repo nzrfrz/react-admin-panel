@@ -46,14 +46,15 @@ export const themeComponents = (isDarkMode: boolean): Record<string, any> => {
       },
       Card: {},
       Select: {
-        optionSelectedBg: "#1b2c34"
+        optionSelectedBg: isDarkMode === true ? "#1b2c34" : "rgba(0, 0, 0, 0.06)",
+        clearBg: "red"
       },
       Popover: {
         colorBgElevated: isDarkMode === true ? "#2a3338" : "#ebf4f5",
       },
       TreeSelect: {
         indentSize: 8,
-        nodeSelectedBg: "#1b2c34"
+        nodeSelectedBg: isDarkMode === true ? "#1b2c34" : "rgba(0, 0, 0, 0.06)"
       }
     }
   };
