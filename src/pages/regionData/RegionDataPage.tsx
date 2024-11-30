@@ -32,7 +32,6 @@ export function RegionDataPage() {
       return option.children.find((childOption) => childOption.value === value)
     });
     setTreeSelectDefaultExpandedKeys(temp?.value as string);
-    console.log(temp?.value);
   };
 
   const {
