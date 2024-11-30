@@ -53,8 +53,19 @@ export const useStateSelect = (
 
   const stateFormRequired = useMemo(() => {
     if (selectedCountry === undefined && stateSelectOptions === undefined) return true;
-    else if (selectedCountry !== undefined && stateSelectOptions !== undefined && stateSelectOptions?.length > 0) return true;
-    else return false;
+    else if (
+      selectedCountry !== undefined &&
+      stateSelectOptions !== undefined &&
+      stateSelectOptions.length > 0
+    ) return true;
+    else if (
+      selectedCountry !== undefined &&
+      stateSelectOptions !== undefined &&
+      stateSelectOptions.length === 0
+    ) return false;
+    // else return false;
+    // if (selectedCountry === undefined && stateSelectOptions === undefined) return true;
+    // else if (selectedCountry !== undefined && stateSelectOptions !== undefined && stateSelectOptions?.length > 0) return true;
   }, [selectedCountry, stateSelectOptions]);
 
   useEffect(() => {

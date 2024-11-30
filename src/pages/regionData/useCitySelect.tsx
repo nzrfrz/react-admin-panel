@@ -1,13 +1,15 @@
 import { useMemo } from "react";
 
-import { Form, FormInstance } from "antd";
+import { SelectOptionProps } from "../../_components";
 import { ApiSuccessResponse, CityProps, useQueryHook } from "../../_utils";
+
+import { Form, FormInstance } from "antd";
 
 export const useCitySelect = (
   form: FormInstance,
   selectedState: string,
   selectedCountry: string,
-  stateSelectOptions: string,
+  stateSelectOptions: SelectOptionProps[],
 ) => {
   const selectedCity = Form.useWatch("city", form);
 
@@ -52,10 +54,30 @@ export const useCitySelect = (
   }, [cityList, selectedCity]);
 
   const cityFormHelper = useMemo(() => {
-    if (selectedState !== undefined) return undefined;
-    else if (stateSelectOptions?.length === 0) return undefined;
+    
+    if (
+      selectedCountry !== undefined &&
+      stateSelectOptions !== undefined &&
+      stateSelectOptions.length === 0
+    ) return undefined;
+
+    if (
+      selectedCountry !== undefined &&
+      selectedState !== undefined &&
+      citySelectOptions !== undefined &&
+      citySelectOptions.length === 0
+    ) return undefined;
+
+    if (
+      selectedCountry !== undefined &&
+      selectedState !== undefined &&
+      citySelectOptions !== undefined &&
+      citySelectOptions.length > 0
+    ) return undefined;
     else return "Select State";
-  }, [selectedState, stateSelectOptions]);
+  }, [selectedCountry, selectedState, stateSelectOptions, citySelectOptions]);
+  // console.log(citySelectOptions);
+  // west africa - burkina - banwa prov
 
   const cityFormRequired = useMemo(() => {
     if (

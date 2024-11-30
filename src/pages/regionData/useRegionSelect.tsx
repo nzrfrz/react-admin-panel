@@ -7,6 +7,7 @@ import subRegionDataMaster from "./regionDataJOSN/subregions.json";
 
 export const useRegionSelect = (
   form: FormInstance,
+  setValue: React.Dispatch<React.SetStateAction<string>>
 ) => {
   const selectedRegion = Form.useWatch("region", form);
 
@@ -34,7 +35,10 @@ export const useRegionSelect = (
   }, [selectedRegion, subRegionDataMaster]);
 
   useEffect(() => {
-    if (selectedRegion) form.resetFields(["country", "state", "city"]);
+    if (selectedRegion) {
+      form.resetFields(["country", "state", "city"]);
+      setValue("");
+    }
   }, [form, selectedRegion]);
 
   return {

@@ -23,7 +23,7 @@ export function RegionDataPage() {
     selectedRegion,
     regionSelectOptions,
     selectedRegionDetails,
-  } = useRegionSelect(form);
+  } = useRegionSelect(form, setValue);
 
   const {
     selectedCountry,
@@ -48,7 +48,12 @@ export function RegionDataPage() {
     cityFormRequired,
     citySelectOptions,
     selectedCityDetails,
-  } = useCitySelect(form, selectedState, selectedCountry, stateSelectOptions as any);
+  } = useCitySelect(
+    form,  
+    selectedState, 
+    selectedCountry,
+    stateSelectOptions as SelectOptionProps[]
+  );
 
   // console.log(stateSelectOptions);
 
